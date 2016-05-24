@@ -1,8 +1,17 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="aufgabe03.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="261.0" prefWidth="365.0"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+	fx:controller="application.MyController">
+	<children>
+		<Button layoutX="48.0" layoutY="34.0" mnemonicParsing="false"
+			onAction="#buttonPressed" text="Button" />
+		<Label fx:id="label1" layoutX="183.0" layoutY="103.0" text="Label" />
+	</children>
+</AnchorPane>
