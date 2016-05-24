@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<<<<<<< HEAD
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
@@ -26,3 +27,17 @@
       </Pane>
    </children>
 </GridPane>
+=======
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="261.0" prefWidth="365.0"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+	fx:controller="application.MyController">
+	<children>
+		<Button layoutX="48.0" layoutY="34.0" mnemonicParsing="false"
+			onAction="#buttonPressed" text="Button" />
+		<Label fx:id="label1" layoutX="183.0" layoutY="103.0" text="Label" />
+	</children>
+</AnchorPane>
+>>>>>>> dfa33199a2aa6006dcb2a3ffd619e229a9039b56
