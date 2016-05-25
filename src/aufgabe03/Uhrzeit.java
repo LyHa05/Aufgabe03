@@ -1,8 +1,13 @@
 package aufgabe03;
 
 /**
- * Created by chris on 24.05.16.
+ * @author  Chris Thiele, Lydia Pflug
+ * @date    24.05.2016
+ *
+ * Die Klasse 'Uhrzeit' enthaelt eine Anzahl von Minuten und Stunden, ausserdem ist
+ * Comparable implementiert, um Uhrzeit vergleichen zu koennen
  */
+
 public class Uhrzeit {
     private int stunden;
     private int minuten;
@@ -21,6 +26,7 @@ public class Uhrzeit {
         }
     }
 
+    //ToDo Comparable implementieren, damit die Uhrzeiten verglichen werden können
 
     public int getStunden() {
         return stunden;
