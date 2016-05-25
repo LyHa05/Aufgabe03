@@ -8,7 +8,7 @@ package aufgabe03;
  * Comparable implementiert, um Uhrzeit vergleichen zu koennen
  */
 
-public class Uhrzeit {
+public class Uhrzeit implements Comparable<Uhrzeit>{
     private int stunden;
     private int minuten;
 
@@ -26,7 +26,22 @@ public class Uhrzeit {
         }
     }
 
-    //ToDo Comparable implementieren, damit die Uhrzeiten verglichen werden können
+    public int compareTo(Uhrzeit other){
+        // compareTo should return < 0 if this is supposed to be
+        // less than other, > 0 if this is supposed to be greater than
+        // other and 0 if they are supposed to be equal
+        if(this.stunden == other.getStunden() && this.minuten == other.getMinuten()){
+            return 0;
+        } else if (this.stunden > other.stunden) {
+            return 1;
+        } else if (this.stunden == other.getStunden() && this.minuten > other.getMinuten()){
+            return 1;
+        } else if (this.stunden < other.getStunden()){
+            return -1;
+        } else if (this.stunden == other.getStunden() && this.minuten < other.getMinuten()){
+            return -1;
+        }
+    }
 
     public int getStunden() {
         return stunden;
