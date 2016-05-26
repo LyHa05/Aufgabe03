@@ -14,8 +14,15 @@ import java.time.LocalDate;
 public class Ort {
     Uhrzeit uhrzeit_ankunft, uhrzeit_abreise;
     LocalDate datum_ankunft, datum_abreise;
+    String ort_name;
 
-    public Ort(LocalDate datum_ankunft, LocalDate datum_abreise, Uhrzeit uhrzeit_ankunft, Uhrzeit uhrzeit_abreise){
-
+    public Ort(String ort_name, LocalDate datum_ankunft, LocalDate datum_abreise, Uhrzeit uhrzeit_ankunft, Uhrzeit uhrzeit_abreise){
+        this.ort_name = ort_name;
+        this.datum_ankunft = datum_ankunft;
+        this.datum_abreise = datum_abreise;
+        this.uhrzeit_ankunft = uhrzeit_ankunft;
+        this.uhrzeit_abreise = uhrzeit_abreise;
     }
+
+
 }

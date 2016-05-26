@@ -13,13 +13,13 @@ public class Uhrzeit implements Comparable<Uhrzeit>{
     private int minuten;
 
     public Uhrzeit(int stunden, int minuten){
-        if(stunden > 0 && stunden < 24){
+        if(stunden > -1 && stunden < 25){
             this.setStunden(stunden);
         } else {
             throw new IllegalArgumentException("Stunden muessen 0 < stunden < 24 sein");
         }
 
-        if(minuten > 0 && minuten < 60){
+        if(minuten > -1 && minuten < 61){
             this.setMinuten(minuten);
         } else {
             throw new IllegalArgumentException("Minuten muessen 0 < stunden < 60 sein");
