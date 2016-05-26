@@ -41,6 +41,8 @@ public class Uhrzeit implements Comparable<Uhrzeit>{
         } else if (this.stunden == other.getStunden() && this.minuten < other.getMinuten()){
             return -1;
         }
+
+        return 0;
     }
 
     public int getStunden() {
