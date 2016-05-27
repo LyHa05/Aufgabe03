@@ -35,7 +35,7 @@ public class Ort implements Comparable<Ort>{
         sbAnkunft.append(stdAnkunft);
         sbAnkunft.append(":");
         sbAnkunft.append(minAnkunft);
-        uhrzeitAbfahrt = sbAnkunft.toString();
+        uhrzeitAnkunft = sbAnkunft.toString();
 
         StringBuilder sbAbfahrt = new StringBuilder();
         sbAbfahrt.append(stdAbfahrt);
@@ -44,6 +44,10 @@ public class Ort implements Comparable<Ort>{
         uhrzeitAbfahrt = sbAbfahrt.toString();
 
         dummy = 1;
+    }
+
+    public Integer getDummy(){
+        return dummy;
     }
 
     public String getName() {

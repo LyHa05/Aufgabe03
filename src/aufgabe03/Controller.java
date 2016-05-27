@@ -5,13 +5,16 @@ package aufgabe03;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
 	/** Variable Deklaration
 	 *  Die Objekte werden automatisch aus der FXML Datei geparst
 	 *  wenn sie den gleichen Namen haben, wie ihre fx:id */
@@ -41,8 +44,7 @@ public class Controller {
 	private Pane 				p1Gesamt, p2Reise, p3Start, p4Zwischen, p5Ende, p6Zeit;
 
 	/** Tabellen Struktur erstellen */
-	@FXML
-	private TableView<Ort> 		tvTable;
+	@FXML private TableView<Ort> tvTable;
 
 	@FXML
 	private TableColumn<Ort, String>	tvOrt, tvAnkunftsUhrzeit, tvAbreiseUhrzeit;
@@ -56,45 +58,32 @@ public class Controller {
 	@FXML
 	private ObservableList<Ort> reiseOrte;
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources){
+		tvNr.setCellValueFactory(new PropertyValueFactory<Ort, Integer>("dummy"));
+		tvOrt.setCellValueFactory(new PropertyValueFactory<Ort, String>("name"));
+		tvAnkunftsDatum.setCellValueFactory(new PropertyValueFactory<Ort, LocalDate>("ankunft"));
+		tvAnkunftsUhrzeit.setCellValueFactory(new PropertyValueFactory<Ort, String>("uhrzeitAnkunft"));
+		tvAbreiseDatum.setCellValueFactory(new PropertyValueFactory<Ort, LocalDate>("abfahrt"));
+		tvAbreiseUhrzeit.setCellValueFactory(new PropertyValueFactory<Ort, String>("uhrzeitAbfahrt"));
+
+		try {
+			tvTable.getItems().setAll(getSomeItems());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	/** Konstruktor
 	 *  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
 	 *  Variable gespeichert wird und uebergibt this fuer die Referenz aus sich*/
 	public Controller() throws Exception {
 		lObj = new Logik(this);
-		tvTable = new TableView<Ort>();
-		//reiseOrte =FXCollections.observableArrayList();
-
-		/** Spalte Nr. (ueber den Index?) */
-		tvNr = new TableColumn<>("Nr.");
-		tvNr.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-
-		/** Spalte Ort Name */
-		tvOrt = new TableColumn<>("Ort");
-		tvOrt.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-		/** Spalte Ankunfts Datum */
-		tvAnkunftsDatum = new TableColumn<>("Ankunft");
-		tvAnkunftsDatum.setCellValueFactory(new PropertyValueFactory<>("ankunft"));
-
-		/** Spalte Ankunfts Uhrzeit */
-		tvAnkunftsUhrzeit = new TableColumn<>("Uhrzeit");
-		tvAnkunftsUhrzeit.setCellValueFactory(new PropertyValueFactory<>("uhrzeitAnkunft"));
-
-		/** Spalte Abfahrts Datum */
-		tvAbreiseDatum = new TableColumn<>("Abfahrt");
-		tvAbreiseDatum.setCellValueFactory(new PropertyValueFactory<>("abfahrt"));
-
-		/** Spalte Abfahrts Uhrzeit */
-		tvAbreiseUhrzeit = new TableColumn<>("Uhrzeit");
-		tvAbreiseUhrzeit.setCellValueFactory(new PropertyValueFactory<>("uhrzeitAbfahrt"));
-
-		//tvTable.getColumns().addAll(tvNr, tvOrt, tvAnkunftsDatum, tvAnkunftsUhrzeit, tvAbreiseDatum, tvAbreiseUhrzeit);
-		tvTable.setItems(getSomeItems());
     }
 
 	/** TestMethode zur Erstellung von einigen Ort Objekten und zur Anzeige in der Tabelle! */
 	public ObservableList<Ort> getSomeItems() throws Exception{
-		reiseOrte =FXCollections.observableArrayList();
+		ObservableList<Ort> reiseOrte =FXCollections.observableArrayList();
 		Ort o1, o2, o3, o4;
 		LocalDate d1, d2;
 

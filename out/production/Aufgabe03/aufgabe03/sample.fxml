@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-
 <?import aufgabe03.NumberTextField?>
 <?import aufgabe03.LetterTextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane fx:id="p1Gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
       <Pane fx:id="p2Reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
@@ -25,12 +17,36 @@
             <Button fx:id="bt4Reise" layoutX="101.0" layoutY="413.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
             <TableView fx:id="tvTable" layoutY="55.0" prefHeight="347.0" prefWidth="376.0">
                <columns>
-                  <TableColumn fx:id="tvNr" prefWidth="25.0" text="Nr." />
-                  <TableColumn fx:id="tvOrt" prefWidth="90.0" text="Ort" />
-                  <TableColumn fx:id="tvAnkunftDatum" prefWidth="65.0" text="Ankunft" />
-                  <TableColumn fx:id="tvAnkunftUhrzeit" prefWidth="65.0" text="Uhrzeit" />
-                  <TableColumn fx:id="tvAbreiseDatum" prefWidth="65.0" text="Abreise" />
-                  <TableColumn fx:id="tvAbreiseUhrzeit" prefWidth="65.0" text="Uhrzeit" />
+                  <TableColumn fx:id="tvNr" prefWidth="25.0" text="Nr.">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="dummy" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="tvOrt" prefWidth="90.0" text="Ort">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="tvAnkunftsDatum" prefWidth="65.0" text="Ankunft">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="ankunft" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="tvAnkunftsUhrzeit" prefWidth="65.0" text="Uhrzeit">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="uhrzeitAnkunft" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="tvAbreiseDatum" prefWidth="65.0" text="Abreise" >
+                     <cellValueFactory>
+                        <PropertyValueFactory property="abfahrt" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="tvAbreiseUhrzeit" prefWidth="65.0" text="Uhrzeit" >
+                     <cellValueFactory>
+                        <PropertyValueFactory property="uhrzeitAbfahrt" />
+                     </cellValueFactory>
+                  </TableColumn>
                </columns>
             </TableView>
          </children>
