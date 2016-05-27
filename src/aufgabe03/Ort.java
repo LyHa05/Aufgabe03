@@ -12,14 +12,14 @@ import java.time.LocalDate;
 
 public class Ort implements Comparable<Ort>{
     String name, uhrzeitAnkunft, uhrzeitAbfahrt;
-    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt;
+    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt, dummy;
     LocalDate ankunft, abfahrt;
 
     public Ort(String name, int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt, LocalDate ankunft, LocalDate abfahrt) throws Exception{
         if(!(ueberpruefeUhrzeit(stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt))){
             throw new IllegalArgumentException("Die Uhrzeit ist unrealistisch!");
-        } else if (ankunft.compareTo(abfahrt) == -1){
-            throw new IllegalArgumentException("Das Ankunftsdatum darf nicht hinter dem Abfahrtsdatum liegen.")
+        } else if (ankunft.compareTo(abfahrt) == 1){
+            throw new IllegalArgumentException("Das Ankunftsdatum darf nicht hinter dem Abfahrtsdatum liegen.");
         } else {
                 this.name = name;
                 this.stdAbfahrt = stdAbfahrt;
@@ -30,6 +30,7 @@ public class Ort implements Comparable<Ort>{
                 this.abfahrt = abfahrt;
         }
 
+        /** 'Baut' aus den Uhrzeit-Einzel-Teilen zwei Strings fuer die Darstellung in der Tabelle */
         StringBuilder sbAnkunft = new StringBuilder();
         sbAnkunft.append(stdAnkunft);
         sbAnkunft.append(":");
@@ -41,6 +42,8 @@ public class Ort implements Comparable<Ort>{
         sbAbfahrt.append(":");
         sbAbfahrt.append(minAbfahrt);
         uhrzeitAbfahrt = sbAbfahrt.toString();
+
+        dummy = 1;
     }
 
     public String getName() {
@@ -63,7 +66,6 @@ public class Ort implements Comparable<Ort>{
         return minAbfahrt;
     }
 
-    /** Zusammenfuegen von Std:Min zu einem String, zur Darstellung in der Tabelle */
     public String getUhrzeitAnkunft(){
        return uhrzeitAnkunft;
     }
@@ -71,7 +73,6 @@ public class Ort implements Comparable<Ort>{
     public String getUhrzeitAbfahrt(){
         return uhrzeitAbfahrt;
     }
-    /** ------------ */
 
     public LocalDate getAnkunft() {
         return ankunft;

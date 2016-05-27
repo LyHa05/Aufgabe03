@@ -45,7 +45,13 @@ public class Controller {
 	private TableView<Ort> 		tvTable;
 
 	@FXML
-	private TableColumn<Ort, String>	tvNr, tvOrt, tvAnkunftsDatum, tvAnkunftsUhrzeit, tvAbreiseDatum, tvAbreiseUhrzeit;
+	private TableColumn<Ort, String>	tvOrt, tvAnkunftsUhrzeit, tvAbreiseUhrzeit;
+
+	@FXML
+	private TableColumn<Ort, LocalDate> tvAnkunftsDatum, tvAbreiseDatum;
+
+	@FXML
+	private TableColumn<Ort, Integer> tvNr;
 
 	@FXML
 	private ObservableList<Ort> reiseOrte;
@@ -56,14 +62,53 @@ public class Controller {
 	public Controller() throws Exception {
 		lObj = new Logik(this);
 		tvTable = new TableView<Ort>();
-		reiseOrte =FXCollections.observableArrayList();
+		//reiseOrte =FXCollections.observableArrayList();
 
 		/** Spalte Nr. (ueber den Index?) */
+		tvNr = new TableColumn<>("Nr.");
+		tvNr.setCellValueFactory(new PropertyValueFactory<>("dummy"));
 
 		/** Spalte Ort Name */
+		tvOrt = new TableColumn<>("Ort");
+		tvOrt.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-		/** Spalte Ankunft Datum
+		/** Spalte Ankunfts Datum */
+		tvAnkunftsDatum = new TableColumn<>("Ankunft");
+		tvAnkunftsDatum.setCellValueFactory(new PropertyValueFactory<>("ankunft"));
+
+		/** Spalte Ankunfts Uhrzeit */
+		tvAnkunftsUhrzeit = new TableColumn<>("Uhrzeit");
+		tvAnkunftsUhrzeit.setCellValueFactory(new PropertyValueFactory<>("uhrzeitAnkunft"));
+
+		/** Spalte Abfahrts Datum */
+		tvAbreiseDatum = new TableColumn<>("Abfahrt");
+		tvAbreiseDatum.setCellValueFactory(new PropertyValueFactory<>("abfahrt"));
+
+		/** Spalte Abfahrts Uhrzeit */
+		tvAbreiseUhrzeit = new TableColumn<>("Uhrzeit");
+		tvAbreiseUhrzeit.setCellValueFactory(new PropertyValueFactory<>("uhrzeitAbfahrt"));
+
+		//tvTable.getColumns().addAll(tvNr, tvOrt, tvAnkunftsDatum, tvAnkunftsUhrzeit, tvAbreiseDatum, tvAbreiseUhrzeit);
+		tvTable.setItems(getSomeItems());
     }
+
+	/** TestMethode zur Erstellung von einigen Ort Objekten und zur Anzeige in der Tabelle! */
+	public ObservableList<Ort> getSomeItems() throws Exception{
+		reiseOrte =FXCollections.observableArrayList();
+		Ort o1, o2, o3, o4;
+		LocalDate d1, d2;
+
+		d1 = LocalDate.of(2012, 5, 12);
+		d2 = LocalDate.of(2013, 5, 12);
+
+			o1 = new Ort("Hamburg", 12, 12, 8, 22, d1, d2);
+			o2 = new Ort("Frankfurt", 1, 12, 8, 22, d1, d2);
+			o3 = new Ort("Berlin", 12, 9, 22, 22, d1, d2);
+			o4 = new Ort("Bremen", 13, 22, 8, 22, d1, d2);
+
+		reiseOrte.addAll(o1, o2, o3, o4);
+		return reiseOrte;
+	}
 
 	/** Methoden */
 	

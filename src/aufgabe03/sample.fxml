@@ -41,7 +41,7 @@
             <DatePicker fx:id="dp1Start" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="l02UhrzeitStart" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="l03DatumStart" layoutY="40.0" text="Datum" />
-            <Label fx:id="l04:Start" layoutX="99.0" layoutY="77.0" text=":" />
+            <Label fx:id="l04Start" layoutX="99.0" layoutY="77.0" text=":" />
             <Label fx:id="l05OrtStart" layoutX="2.0" layoutY="113.0" text="Ort" />
             <NumberTextField fx:id="tf01StdStart" layoutX="52.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf02MinStart" layoutX="113.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
@@ -54,11 +54,11 @@
             <DatePicker fx:id="dp2Zwischen1" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="l06UhrzeitZwischen1" layoutX="3.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="l07DatumZwischen1" layoutY="40.0" text="Datum" />
-            <Label fx:id="l08:Zwischen1" layoutX="99.0" layoutY="77.0" text=":" />
+            <Label fx:id="l08Zwischen1" layoutX="99.0" layoutY="77.0" text=":" />
             <DatePicker fx:id="dp3Zwischen2" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="l09UhrzeitZwischen2" layoutX="3.0" layoutY="150.0" text="Uhrzeit" />
             <Label fx:id="l10DatumZwischen2" layoutY="113.0" text="Datum" />
-            <Label fx:id="l11:Zwischen2" layoutX="99.0" layoutY="150.0" text=":" />
+            <Label fx:id="l11Zwischen2" layoutX="99.0" layoutY="150.0" text=":" />
             <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach" />
             <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen" />
             <Label fx:id="l12ZwischenOrt" layoutX="6.0" layoutY="226.0" text="Ort" />
@@ -76,7 +76,7 @@
             <DatePicker fx:id="dp4Ende" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="l13UhrzeitEnde" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="l14DatumEnde" layoutY="40.0" text="Datum" />
-            <Label fx:id="l15:Ende" layoutX="99.0" layoutY="77.0" text=":" />
+            <Label fx:id="l15Ende" layoutX="99.0" layoutY="77.0" text=":" />
             <Label fx:id="l16OrtEnde" layoutX="2.0" layoutY="113.0" text="Ort" />
             <NumberTextField fx:id="tf10StdEnde" layoutX="52.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf11MinEnde" layoutX="113.0" layoutY="75.0" prefHeight="25.0" prefWidth="35.0" />
