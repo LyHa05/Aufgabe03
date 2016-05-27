@@ -1,5 +1,13 @@
 package aufgabe03;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
 import java.time.LocalDate;
 
 
@@ -12,17 +20,18 @@ import java.time.LocalDate;
  */
 
 public class Ort {
-    Uhrzeit uhrzeit_ankunft, uhrzeit_abreise;
-    LocalDate datum_ankunft, datum_abreise;
-    String ort_name;
+    private final ObjectProperty<Uhrzeit> uhrzeit_ankunft, uhrzeit_abreise;
+    private final ObjectProperty<LocalDate> datum_ankunft, datum_abreise;
+    private final StringProperty ort_name;
 
     public Ort(String ort_name, LocalDate datum_ankunft, LocalDate datum_abreise, Uhrzeit uhrzeit_ankunft, Uhrzeit uhrzeit_abreise){
-        this.ort_name = ort_name;
-        this.datum_ankunft = datum_ankunft;
-        this.datum_abreise = datum_abreise;
-        this.uhrzeit_ankunft = uhrzeit_ankunft;
-        this.uhrzeit_abreise = uhrzeit_abreise;
+        this.ort_name = new SimpleStringProperty(ort_name);
+        this.uhrzeit_ankunft = new ObjectProperty<Uhrzeit>() {
+
     }
 
 
+    public ObjectProperty<Ort> OrtProperty(){
+        return Ort;
+    }
 }

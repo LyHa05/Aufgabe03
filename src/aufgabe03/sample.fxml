@@ -14,6 +14,7 @@
 
 <?import aufgabe03.NumberTextField?>
 <?import aufgabe03.LetterTextField?>
+
 <AnchorPane fx:id="p1_gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
       <Pane fx:id="p2_reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">

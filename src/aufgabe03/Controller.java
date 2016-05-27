@@ -22,7 +22,7 @@ public class Controller {
 	private Button 				bt1_start, bt2_zwischen, bt3_ende;
 
 	@FXML
-	private DatePicker 			dp_start, dp2_zwischen_1, dp2_zwischen_2, dp4_ende;
+	private DatePicker 			dp1_start, dp2_zwischen_1, dp2_zwischen_2, dp4_ende;
 
 	@FXML
 	private TextField 			tf08_einfuegen_ort;
@@ -53,42 +53,20 @@ public class Controller {
 	/** Konstruktor
 	 *  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
 	 *  Variable gespeichert wird und uebergibt this fuer die Referenz aus sich*/
-	public Controller(){
+	public Controller() throws Exception {
 		tvTable = new TableView<Ort>();
 		reiseItems =FXCollections.observableArrayList();
 		tvTable.setItems(reiseItems);
 		l_obj = new Logik(this);
 
-
-		/** Hier wird testweise eine Reise Orte in die Tabelle geschrieben */
-		Ort o1, o2, o3, o4;
-		LocalDate lo1;
-		Uhrzeit uh1;
-
-		try {
-			uh1 = new Uhrzeit(12,12);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		lo1 = LocalDate.of(Integer.parseInt("2016"), Integer.parseInt("8"), Integer.parseInt("9"));
-
-		o1 = new Ort("Hamburg", lo1, lo1, uh1, uh1); /** Ist initialisiert */
-		o2 = new Ort("Berlin", lo1, lo1, uh1, uh1);
-		o3 = new Ort("Bremen", lo1, lo1, uh1, uh1);
-		o4 = new Ort("Frankfurt", lo1, lo1, uh1, uh1);
-
-		tvTable.getItems().addAll(o1, o2, o3, o4);
-
-		tvNr.setCellFactory(new PropertyValueFactory<Ort, String>());
-	}
+    }
 
 	/** Methoden */
 	
 	@FXML
 	public void buttonStartPressed() {
 		try {
-			l_obj.startHinzufuegen(dp_start, tf01_std_start, tf02_min_start, tf03_ort_start);
+			l_obj.startHinzufuegen(dp1_start, tf01_std_start, tf02_min_start, tf03_ort_start);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -114,13 +92,13 @@ public class Controller {
 
 	}
 
-	protected void createTableColum(){
+	/**protected void createTableColum(){
 		tvNr = new TableColumn<>("Nr.");
 	}
 
 	protected void SetOrtObjekt(int index, Ort ort_obj){
 
-	}
+	} */
 
 	protected TableView<Ort> getListView(){
 		return tvTable;

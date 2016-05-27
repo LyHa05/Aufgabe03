@@ -39,7 +39,6 @@ public class Logik{
         Ort tempStartOrt = new Ort(ortName, ankunftAbreiseDatum, ankunftAbreiseDatum, ankunftAbreiseUhrzeit, ankunftAbreiseUhrzeit);
 
         con_obj.getListView().getItems().add(tempStartOrt);
-        System.out.println(con_obj.getListView().getItems().get(0).toString());
     }
 
 
