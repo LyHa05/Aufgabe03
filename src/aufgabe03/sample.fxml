@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -13,11 +14,19 @@
 
 <AnchorPane fx:id="p1_gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
-      <Pane fx:id="p2_reise" layoutX="14.0" layoutY="14.0" prefHeight="407.0" prefWidth="216.0">
+      <Pane fx:id="p2_reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
          <children>
-            <Label fx:id="l01_ueberschrift" layoutX="6.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="102.0" text="Reisegenerator" />
-            <ListView fx:id="lv1_reise" layoutX="8.0" layoutY="62.0" prefHeight="289.0" prefWidth="200.0" />
-            <Button fx:id="BT4_Reise" layoutX="21.0" layoutY="362.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
+            <Label fx:id="l01_ueberschrift" layoutX="113.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="150.0" text="Reisegenerator" textAlignment="CENTER">
+               <font>
+                  <Font size="19.0" />
+               </font></Label>
+            <Button fx:id="BT4_Reise" layoutX="101.0" layoutY="413.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
+            <TableView layoutY="55.0" prefHeight="347.0" prefWidth="376.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
       <Pane fx:id="p3_start" layoutX="406.0" layoutY="14.0" prefHeight="140.0" prefWidth="183.0">
@@ -68,7 +77,7 @@
             <TextField fx:id="tf12_ort_ende" layoutX="52.0" layoutY="110.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
-      <Pane fx:id="p6_zeit" layoutX="22.0" layoutY="425.0" prefHeight="110.0" prefWidth="200.0">
+      <Pane fx:id="p6_zeit" layoutX="22.0" layoutY="485.0" prefHeight="80.0" prefWidth="376.0">
          <children>
             <Label layoutY="6.0" prefHeight="17.0" prefWidth="102.0" text="Reisezeit" />
             <Label layoutX="6.0" layoutY="32.0" prefHeight="17.0" prefWidth="35.0" text="netto" />
