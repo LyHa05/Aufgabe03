@@ -13,8 +13,8 @@ import java.time.LocalDate;
 public class Logik{
     ObservableList ob_list;
 
-    public Logik(ObservableList list) {
-        this.ob_list = list;
+    public Logik(/**ObservableList list*/) {
+        //this.ob_list = list;
     }
 
     public void testOrtHinzufuegen(String name, LocalDate d_an, LocalDate d_ab, Uhrzeit u_ab, Uhrzeit u_an, Ort ort_position) throws Exception {
