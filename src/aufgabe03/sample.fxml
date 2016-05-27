@@ -24,6 +24,14 @@
                </font></Label>
             <Button fx:id="BT4_Reise" layoutX="101.0" layoutY="413.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
             <TableView fx:id="tvTable" layoutY="55.0" prefHeight="347.0" prefWidth="376.0">
+               <columns>
+                  <TableColumn fx:id="tvNr" prefWidth="25.0" text="Nr." />
+                  <TableColumn fx:id="tvOrt" prefWidth="90.0" text="Ort" />
+                  <TableColumn fx:id="tvAnkunftDatum" prefWidth="65.0" text="Ankunft" />
+                  <TableColumn fx:id="tvAnkunftUhrzeit" prefWidth="65.0" text="Uhrzeit" />
+                  <TableColumn fx:id="tvAbreiseDatum" prefWidth="65.0" text="Abreise" />
+                  <TableColumn fx:id="tvAbreiseUhrzeit" prefWidth="65.0" text="Uhrzeit" />
+               </columns>
             </TableView>
          </children>
       </Pane>
