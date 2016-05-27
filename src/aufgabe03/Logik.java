@@ -11,37 +11,38 @@ import java.time.LocalDate;
  * Die Klasse 'Logik' repraesentiert die Logik Schicht des Programms.
  */
 public class Logik{
-    private Controller con_obj;
+    private Controller conObj;
 
     public Logik(Controller con_obj){
-        this.con_obj = con_obj;
+        this.conObj = con_obj;
     }
 
     @SuppressWarnings("unchecked")
-    public void startHinzufuegen(DatePicker dp_start, NumberTextField tf01_std_start, NumberTextField tf02_min_start, LetterTextField tf03_ort_start) throws Exception{
+    public void startHinzufuegen(DatePicker dp1Start, NumberTextField tf01StdStart, NumberTextField tf02MinStart, LetterTextField tf03OrtStart) throws Exception{
         LocalDate ankunftAbreiseDatum;
 
-        if((con_obj.getListView().getItems().size()) != 0){
+        if((conObj.getListView().getItems().size()) != 0){
             throw new IllegalArgumentException("Es ist bereits ein Startort vorhanden, Sie koennen diesen ersetzen,\n" +
                                                 "aber nicht direkt austauschen.");
         }
 
-        String ortName = tf03_ort_start.getText();
+        String ortName = tf03OrtStart.getText();
         /** Kein Try-Catch Block - Exception wird in der Controller Ebene abgefangen */
-        Uhrzeit ankunftAbreiseUhrzeit = new Uhrzeit(Integer.parseInt(tf01_std_start.getText()), Integer.parseInt(tf02_min_start.getText()));
+        Uhrzeit ankunftAbreiseUhrzeit = new Uhrzeit(Integer.parseInt(tf01StdStart.getText()), Integer.parseInt(tf02MinStart.getText()));
 
-        if(dp_start.getValue() == null){
+        if(dp1Start.getValue() == null){
             throw new IllegalArgumentException("Fehler bei der Datums Eingabe.");
         } else {
-            ankunftAbreiseDatum = dp_start.getValue();
+            ankunftAbreiseDatum = dp1Start.getValue();
         }
 
         Ort tempStartOrt = new Ort(ortName, ankunftAbreiseDatum, ankunftAbreiseDatum, ankunftAbreiseUhrzeit, ankunftAbreiseUhrzeit);
 
-        con_obj.getListView().getItems().add(tempStartOrt);
+        conObj.getListView().getItems().add(tempStartOrt);
     }
 
 
+    //hier habe ich keine Umbenennung vorgenommen, falls du das alles sowieso loeschst ;-)
     /**
     public void testOrtHinzufuegen(String name, LocalDate d_an, LocalDate d_ab, Uhrzeit u_ab, Uhrzeit u_an, Ort ort_position) throws Exception {
 

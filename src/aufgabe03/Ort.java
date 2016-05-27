@@ -20,17 +20,17 @@ import java.time.LocalDate;
  */
 
 public class Ort {
-    private final ObjectProperty<Uhrzeit> uhrzeit_ankunft, uhrzeit_abreise;
-    private final ObjectProperty<LocalDate> datum_ankunft, datum_abreise;
-    private final StringProperty ort_name;
+    private final ObjectProperty<Uhrzeit> uhrzeitAnkunft, uhrzeitAbreise;
+    private final ObjectProperty<LocalDate> datumAnkunft, datumAbreise;
+    private final StringProperty ortName;
 
-    public Ort(String ort_name, LocalDate datum_ankunft, LocalDate datum_abreise, Uhrzeit uhrzeit_ankunft, Uhrzeit uhrzeit_abreise){
-        this.ort_name = new SimpleStringProperty(ort_name);
-        this.uhrzeit_ankunft = new ObjectProperty<Uhrzeit>() {
+    public Ort(String ort_name, LocalDate datum_ankunft, LocalDate datumAbreise, Uhrzeit uhrzeitAnkunft, Uhrzeit uhrzeitAbreise){
+        this.ortName = new SimpleStringProperty(ortName);
+        this.uhrzeitAnkunft = new ObjectProperty<Uhrzeit>() {
 
     }
 
-
+// müsste das hier nicht return this oder so heißen? du willst doch eigentlich das Objekt zurückgeben und nicht die Klasse
     public ObjectProperty<Ort> OrtProperty(){
         return Ort;
     }

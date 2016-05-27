@@ -15,30 +15,30 @@ public class Controller {
 	/** Variable Deklaration
 	 *  Die Objekte werden automatisch aus der FXML Datei geparst
 	 *  wenn sie den gleichen Namen haben, wie ihre fx:id */
-	private Logik l_obj;
+	private Logik lObj;
 
 	/** Die ganzen Variablen Namen muessen angepasst werden .. Konvention und so! */
 	@FXML
-	private Button 				bt1_start, bt2_zwischen, bt3_ende;
+	private Button 				bt1Start, bt2Zwischen, bt3Ende;
 
 	@FXML
-	private DatePicker 			dp1_start, dp2_zwischen_1, dp2_zwischen_2, dp4_ende;
+	private DatePicker 			dp1Start, dp2Zwischen1, dp2Zwischen2, dp4Ende;
 
 	@FXML
-	private TextField 			tf08_einfuegen_ort;
+	private TextField 			tf08EinfuegenOrt;
 
 	@FXML
-	private LetterTextField 	tf03_ort_start, tf09_ort_zwischen, tf12_ort_ende;
+	private LetterTextField 	tf03OrtStart, tf09OrtZwischen, tf12OrtEnde;
 
 	@FXML
-	private NumberTextField 	tf01_std_start, tf02_min_start, tf04_std_zwischen_1,
-								tf05_min_zwischen_1, tf06_std_zwischen_2, tf07_min_zwischen_2,
-								tf10_std_ende, tf11_min_ende;
+	private NumberTextField 	tf01StdStart, tf02MinStart, tf04StdZwischen_1,
+								tf05MinZwischen1, tf06StdZwischen2, tf07MinZwischen2,
+								tf10StdEnde, tf11MinEnde;
 	@FXML
-	private Label 				l1_ueberschrift, l2_netto_reise, l3_brutto_reise;
+	private Label 				l1Ueberschrift, l2NettoReise, l3BruttoReise;
 
 	@FXML
-	private Pane 				p1_gesamt, p2_reise, p3_start, p4_zwischen, p5_ende, p6_zeit;
+	private Pane 				p1Gesamt, p2Reise, p3Start, p4Zwischen, p5Ende, p6Zeit;
 
 	/** Tabellen Struktur erstellen */
 	@FXML
@@ -57,7 +57,7 @@ public class Controller {
 		tvTable = new TableView<Ort>();
 		reiseItems =FXCollections.observableArrayList();
 		tvTable.setItems(reiseItems);
-		l_obj = new Logik(this);
+		lObj = new Logik(this);
 
     }
 
@@ -66,7 +66,7 @@ public class Controller {
 	@FXML
 	public void buttonStartPressed() {
 		try {
-			l_obj.startHinzufuegen(dp1_start, tf01_std_start, tf02_min_start, tf03_ort_start);
+			lObj.startHinzufuegen(dp1Start, tf01StdStart, tf02MinStart, tf03OrtStart);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);

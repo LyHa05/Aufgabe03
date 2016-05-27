@@ -52,16 +52,16 @@
          <children>
             <Button fx:id="bt2Zwischen" layoutX="1.0" layoutY="-11.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonZwischenPressed" prefHeight="25.0" prefWidth="174.0" text="Zwischenort" />
             <DatePicker fx:id="dp2Zwischen1" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
-            <Label fx:id="label11311" layoutX="3.0" layoutY="77.0" text="Uhrzeit" />
-            <Label fx:id="label111111" layoutY="40.0" text="Datum" />
-            <Label fx:id="label112111" layoutX="99.0" layoutY="77.0" text=":" />
+            <Label fx:id="l06UhrzeitZwischen1" layoutX="3.0" layoutY="77.0" text="Uhrzeit" />
+            <Label fx:id="l07DatumZwischen1" layoutY="40.0" text="Datum" />
+            <Label fx:id="l08:Zwischen1" layoutX="99.0" layoutY="77.0" text=":" />
             <DatePicker fx:id="dp3Zwischen2" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
-            <Label fx:id="label113111" layoutX="3.0" layoutY="150.0" text="Uhrzeit" />
-            <Label fx:id="label1111111" layoutY="113.0" text="Datum" />
-            <Label fx:id="label1121111" layoutX="99.0" layoutY="150.0" text=":" />
+            <Label fx:id="l09UhrzeitZwischen2" layoutX="3.0" layoutY="150.0" text="Uhrzeit" />
+            <Label fx:id="l10DatumZwischen2" layoutY="113.0" text="Datum" />
+            <Label fx:id="l11:Zwischen2" layoutX="99.0" layoutY="150.0" text=":" />
             <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach" />
             <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen" />
-            <Label fx:id="label1131212" layoutX="6.0" layoutY="226.0" text="Ort" />
+            <Label fx:id="l12ZwischenOrt" layoutX="6.0" layoutY="226.0" text="Ort" />
             <NumberTextField fx:id="tf04StdZwischen1" layoutX="53.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf05MinZwischen1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf06StdZwischen2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
@@ -74,10 +74,10 @@
          <children>
             <Button fx:id="bt3Ende" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonEndePressed" prefHeight="25.0" prefWidth="174.0" text="Endort hinzufügen" />
             <DatePicker fx:id="dp4Ende" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
-            <Label fx:id="label113121" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
-            <Label fx:id="label1111121" layoutY="40.0" text="Datum" />
-            <Label fx:id="label1121121" layoutX="99.0" layoutY="77.0" text=":" />
-            <Label fx:id="label1131211" layoutX="2.0" layoutY="113.0" text="Ort" />
+            <Label fx:id="l13UhrzeitEnde" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
+            <Label fx:id="l14DatumEnde" layoutY="40.0" text="Datum" />
+            <Label fx:id="l15:Ende" layoutX="99.0" layoutY="77.0" text=":" />
+            <Label fx:id="l16OrtEnde" layoutX="2.0" layoutY="113.0" text="Ort" />
             <NumberTextField fx:id="tf10StdEnde" layoutX="52.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf11MinEnde" layoutX="113.0" layoutY="75.0" prefHeight="25.0" prefWidth="35.0" />
             <LetterTextField fx:id="tf12OrtEnde" layoutX="52.0" layoutY="110.0" prefHeight="25.0" prefWidth="122.0" />
