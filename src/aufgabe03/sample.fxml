@@ -14,16 +14,15 @@
 
 <?import aufgabe03.NumberTextField?>
 <?import aufgabe03.LetterTextField?>
-
-<AnchorPane fx:id="p1_gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
+<AnchorPane fx:id="p1Gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
-      <Pane fx:id="p2_reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
+      <Pane fx:id="p2Reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
          <children>
-            <Label fx:id="l01_ueberschrift" layoutX="113.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="150.0" text="Reisegenerator" textAlignment="CENTER">
+            <Label fx:id="l01Ueberschrift" layoutX="113.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="150.0" text="Reisegenerator" textAlignment="CENTER">
                <font>
                   <Font size="19.0" />
                </font></Label>
-            <Button fx:id="BT4_Reise" layoutX="101.0" layoutY="413.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
+            <Button fx:id="bt4Reise" layoutX="101.0" layoutY="413.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
             <TableView fx:id="tvTable" layoutY="55.0" prefHeight="347.0" prefWidth="376.0">
                <columns>
                   <TableColumn fx:id="tvNr" prefWidth="25.0" text="Nr." />
@@ -36,61 +35,61 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="p3_start" layoutX="406.0" layoutY="14.0" prefHeight="140.0" prefWidth="183.0">
+      <Pane fx:id="p3Start" layoutX="406.0" layoutY="14.0" prefHeight="140.0" prefWidth="183.0">
          <children>
-            <Button fx:id="bt1_start" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonStartPressed" prefHeight="25.0" prefWidth="174.0" text="Startort hinzufügen" />
-            <DatePicker fx:id="dp1_start" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
-            <Label fx:id="label11312" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
-            <Label fx:id="label111112" layoutY="40.0" text="Datum" />
-            <Label fx:id="label112112" layoutX="99.0" layoutY="77.0" text=":" />
-            <Label fx:id="label113121" layoutX="2.0" layoutY="113.0" text="Ort" />
-            <NumberTextField fx:id="tf01_std_start" layoutX="52.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
-            <NumberTextField fx:id="tf02_min_start" layoutX="113.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
-            <LetterTextField fx:id="tf03_ort_start" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="bt1Start" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonStartPressed" prefHeight="25.0" prefWidth="174.0" text="Startort hinzufügen" />
+            <DatePicker fx:id="dp1Start" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
+            <Label fx:id="l02UhrzeitStart" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
+            <Label fx:id="l03DatumStart" layoutY="40.0" text="Datum" />
+            <Label fx:id="l04:Start" layoutX="99.0" layoutY="77.0" text=":" />
+            <Label fx:id="l05OrtStart" layoutX="2.0" layoutY="113.0" text="Ort" />
+            <NumberTextField fx:id="tf01StdStart" layoutX="52.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf02MinStart" layoutX="113.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
+            <LetterTextField fx:id="tf03OrtStart" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
-      <Pane fx:id="p4_zwischen" layoutX="406.0" layoutY="168.0" prefHeight="253.0" prefWidth="183.0">
+      <Pane fx:id="p4Zwischen" layoutX="406.0" layoutY="168.0" prefHeight="253.0" prefWidth="183.0">
          <children>
-            <Button fx:id="bt2_zwischen" layoutX="1.0" layoutY="-11.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonZwischenPressed" prefHeight="25.0" prefWidth="174.0" text="Zwischenort" />
-            <DatePicker fx:id="dp2_zwischen_1" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="bt2Zwischen" layoutX="1.0" layoutY="-11.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonZwischenPressed" prefHeight="25.0" prefWidth="174.0" text="Zwischenort" />
+            <DatePicker fx:id="dp2Zwischen1" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="label11311" layoutX="3.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="label111111" layoutY="40.0" text="Datum" />
             <Label fx:id="label112111" layoutX="99.0" layoutY="77.0" text=":" />
-            <DatePicker fx:id="dp3_zwischen_2" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
+            <DatePicker fx:id="dp3Zwischen2" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="label113111" layoutX="3.0" layoutY="150.0" text="Uhrzeit" />
             <Label fx:id="label1111111" layoutY="113.0" text="Datum" />
             <Label fx:id="label1121111" layoutX="99.0" layoutY="150.0" text=":" />
             <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach" />
             <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen" />
             <Label fx:id="label1131212" layoutX="6.0" layoutY="226.0" text="Ort" />
-            <NumberTextField fx:id="tf04_std_zwischen_1" layoutX="53.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
-            <NumberTextField fx:id="tf05_min_zwischen_1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
-            <NumberTextField fx:id="tf06_std_zwischen_2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
-            <NumberTextField fx:id="tf07_min_zwischen_2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf08_einfuegen_ort" layoutX="114.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
-            <LetterTextField fx:id="tf09_ort_zwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
+            <NumberTextField fx:id="tf04StdZwischen1" layoutX="53.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf05MinZwischen1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf06StdZwischen2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf07MinZwischen2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
+            <TextField fx:id="tf08EinfuegenOrt" layoutX="114.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
+            <LetterTextField fx:id="tf09OrtZwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
-      <Pane fx:id="p5_ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="183.0">
+      <Pane fx:id="p5Ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="183.0">
          <children>
-            <Button fx:id="bt3_ende" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonEndePressed" prefHeight="25.0" prefWidth="174.0" text="Endort hinzufügen" />
-            <DatePicker fx:id="dp4_ende" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="bt3Ende" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonEndePressed" prefHeight="25.0" prefWidth="174.0" text="Endort hinzufügen" />
+            <DatePicker fx:id="dp4Ende" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
             <Label fx:id="label113121" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="label1111121" layoutY="40.0" text="Datum" />
             <Label fx:id="label1121121" layoutX="99.0" layoutY="77.0" text=":" />
             <Label fx:id="label1131211" layoutX="2.0" layoutY="113.0" text="Ort" />
-            <NumberTextField fx:id="tf10_std_ende" layoutX="52.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
-            <NumberTextField fx:id="tf11_min_ende" layoutX="113.0" layoutY="75.0" prefHeight="25.0" prefWidth="35.0" />
-            <LetterTextField fx:id="tf12_ort_ende" layoutX="52.0" layoutY="110.0" prefHeight="25.0" prefWidth="122.0" />
+            <NumberTextField fx:id="tf10StdEnde" layoutX="52.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf11MinEnde" layoutX="113.0" layoutY="75.0" prefHeight="25.0" prefWidth="35.0" />
+            <LetterTextField fx:id="tf12OrtEnde" layoutX="52.0" layoutY="110.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
-      <Pane fx:id="p6_zeit" layoutX="22.0" layoutY="485.0" prefHeight="80.0" prefWidth="376.0">
+      <Pane fx:id="p6Zeit" layoutX="22.0" layoutY="485.0" prefHeight="80.0" prefWidth="376.0">
          <children>
             <Label layoutY="6.0" prefHeight="17.0" prefWidth="102.0" text="Reisezeit" />
             <Label layoutX="6.0" layoutY="32.0" prefHeight="17.0" prefWidth="35.0" text="netto" />
             <Label layoutX="7.0" layoutY="55.0" prefHeight="17.0" prefWidth="38.0" text="brutto" />
-            <Label fx:id="l2_netto_reise" layoutX="48.0" layoutY="32.0" prefHeight="17.0" prefWidth="102.0" text="Netto-Reisezeit" />
-            <Label fx:id="l3_brutto_reise" layoutX="49.0" layoutY="55.0" prefHeight="17.0" prefWidth="102.0" text="Brutto-Reisezeit" />
+            <Label fx:id="l2NettoReise" layoutX="48.0" layoutY="32.0" prefHeight="17.0" prefWidth="102.0" text="Netto-Reisezeit" />
+            <Label fx:id="l3BruttoReise" layoutX="49.0" layoutY="55.0" prefHeight="17.0" prefWidth="102.0" text="Brutto-Reisezeit" />
          </children>
       </Pane>
    </children>
