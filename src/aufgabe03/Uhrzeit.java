@@ -12,17 +12,19 @@ public class Uhrzeit implements Comparable<Uhrzeit>{
     private int stunden;
     private int minuten;
 
-    public Uhrzeit(int stunden, int minuten){
-        if(stunden > -1 && stunden < 25){
+    public Uhrzeit(int stunden, int minuten) throws Exception{
+        if(stunden > -1 && stunden < 24){
             this.setStunden(stunden);
         } else {
-            throw new IllegalArgumentException("Stunden muessen 0 < stunden < 24 sein");
+            throw new IllegalArgumentException("Fehler bei Erstellung der Uhrzeit\n +" +
+                                                "Stunden muessen 0 < stunden < 24 sein");
         }
 
         if(minuten > -1 && minuten < 61){
             this.setMinuten(minuten);
         } else {
-            throw new IllegalArgumentException("Minuten muessen 0 < stunden < 60 sein");
+            throw new IllegalArgumentException("Fehler bei Erstellung der Uhrzeit\n" +
+                                                " Minuten muessen 0 < stunden < 60 sein");
         }
     }
 
