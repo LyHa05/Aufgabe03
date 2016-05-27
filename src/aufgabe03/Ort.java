@@ -12,7 +12,8 @@ import java.time.LocalDate;
 
 public class Ort implements Comparable<Ort>{
     String name, uhrzeitAnkunft, uhrzeitAbfahrt;
-    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt, dummy;
+    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt;
+    Integer index;
     LocalDate ankunft, abfahrt;
 
     public Ort(String name, int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt, LocalDate ankunft, LocalDate abfahrt) throws Exception{
@@ -43,11 +44,14 @@ public class Ort implements Comparable<Ort>{
         sbAbfahrt.append(minAbfahrt);
         uhrzeitAbfahrt = sbAbfahrt.toString();
 
-        dummy = 1;
     }
 
-    public Integer getDummy(){
-        return dummy;
+    public Integer getIndex(){
+        return index;
+    }
+
+    public void setIndex(Integer index){
+        this.index = index;
     }
 
     public String getName() {
@@ -111,9 +115,11 @@ public class Ort implements Comparable<Ort>{
          *  Ich habs gar nicht erst versucht das short-handed zu machen ... If-Verzweigung des Todes - Bitch
          */
 
-        if(abfahrt.compareTo(other.getAnkunft()) == -1){
+        if(abfahrt.isAfter(other.getAnkunft())){
             return -1;
-        } else if(abfahrt.compareTo(other.getAnkunft()) == 0){
+        }
+
+        if(abfahrt.isEqual(other.getAnkunft())){
             if(stdAbfahrt < other.getStdAnkunft()) return -1;
             if(stdAbfahrt == other.getStdAnkunft()){
                 if(minAbfahrt < other.getMinAnkunft()) return -1;
@@ -121,9 +127,12 @@ public class Ort implements Comparable<Ort>{
                 if(minAbfahrt > other.getMinAnkunft()) return 1;
             }
             if(stdAbfahrt > other.getStdAnkunft()) return 1;
-        } else if (abfahrt.compareTo(other.getAnkunft()) == 1){
+        }
+
+        if (abfahrt.isBefore(other.getAnkunft())){
             return 1;
         }
+
         return 0; // Lol Default Return Parameter ..
     }
 
