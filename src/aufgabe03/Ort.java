@@ -11,7 +11,7 @@ import java.time.LocalDate;
  */
 
 public class Ort implements Comparable<Ort>{
-    String name;
+    String name, uhrzeitAnkunft, uhrzeitAbfahrt;
     int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt;
     LocalDate ankunft, abfahrt;
 
@@ -29,6 +29,18 @@ public class Ort implements Comparable<Ort>{
                 this.ankunft = ankunft;
                 this.abfahrt = abfahrt;
         }
+
+        StringBuilder sbAnkunft = new StringBuilder();
+        sbAnkunft.append(stdAnkunft);
+        sbAnkunft.append(":");
+        sbAnkunft.append(minAnkunft);
+        uhrzeitAbfahrt = sbAnkunft.toString();
+
+        StringBuilder sbAbfahrt = new StringBuilder();
+        sbAbfahrt.append(stdAbfahrt);
+        sbAbfahrt.append(":");
+        sbAbfahrt.append(minAbfahrt);
+        uhrzeitAbfahrt = sbAbfahrt.toString();
     }
 
     public String getName() {
@@ -51,6 +63,16 @@ public class Ort implements Comparable<Ort>{
         return minAbfahrt;
     }
 
+    /** Zusammenfuegen von Std:Min zu einem String, zur Darstellung in der Tabelle */
+    public String getUhrzeitAnkunft(){
+       return uhrzeitAnkunft;
+    }
+
+    public String getUhrzeitAbfahrt(){
+        return uhrzeitAbfahrt;
+    }
+    /** ------------ */
+
     public LocalDate getAnkunft() {
         return ankunft;
     }
@@ -60,7 +82,7 @@ public class Ort implements Comparable<Ort>{
     }
 
     private boolean ueberpruefeUhrzeit(int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt){
-        /** Lydia - da ich ja immer ein > und < Problem habe - checkst du die Werte nochmal ab? */
+        /** Lydia - da ich ja immer ein > und < Problem habe - checkst du die Werte nochmal ab? Danke :-) */
         if(!(stdAnkunft > -1 && stdAnkunft < 24)){
             return false;
         }
@@ -97,6 +119,10 @@ public class Ort implements Comparable<Ort>{
         } else if (abfahrt.compareTo(other.getAnkunft()) == 1){
             return 1;
         }
-        return 0;
+        return 0; // Lol Default Return Parameter ..
+    }
+
+    public String toString(){
+        return "Ort: " + name + " Ankunftsdatum: " + ankunft.toString() + " " + uhrzeitAnkunft + "  Abfahrt " + abfahrt.toString() + " " + uhrzeitAbfahrt;
     }
 }

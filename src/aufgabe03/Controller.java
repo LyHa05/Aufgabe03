@@ -48,17 +48,21 @@ public class Controller {
 	private TableColumn<Ort, String>	tvNr, tvOrt, tvAnkunftsDatum, tvAnkunftsUhrzeit, tvAbreiseDatum, tvAbreiseUhrzeit;
 
 	@FXML
-	private ObservableList<Ort> reiseItems;
+	private ObservableList<Ort> reiseOrte;
 
 	/** Konstruktor
 	 *  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
 	 *  Variable gespeichert wird und uebergibt this fuer die Referenz aus sich*/
 	public Controller() throws Exception {
-		tvTable = new TableView<Ort>();
-		reiseItems =FXCollections.observableArrayList();
-		tvTable.setItems(reiseItems);
 		lObj = new Logik(this);
+		tvTable = new TableView<Ort>();
+		reiseOrte =FXCollections.observableArrayList();
 
+		/** Spalte Nr. (ueber den Index?) */
+
+		/** Spalte Ort Name */
+
+		/** Spalte Ankunft Datum
     }
 
 	/** Methoden */
