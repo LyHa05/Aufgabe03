@@ -12,6 +12,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
+<?import aufgabe03.NumberTextField?>
+<?import aufgabe03.LetterTextField?>
 <AnchorPane fx:id="p1_gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
       <Pane fx:id="p2_reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
@@ -21,11 +23,7 @@
                   <Font size="19.0" />
                </font></Label>
             <Button fx:id="BT4_Reise" layoutX="101.0" layoutY="413.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonReiseErstellenPressed" prefHeight="25.0" prefWidth="174.0" text="Reise erstellen" />
-            <TableView layoutY="55.0" prefHeight="347.0" prefWidth="376.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
+            <TableView fx:id="tvTable" layoutY="55.0" prefHeight="347.0" prefWidth="376.0">
             </TableView>
          </children>
       </Pane>
@@ -37,9 +35,9 @@
             <Label fx:id="label111112" layoutY="40.0" text="Datum" />
             <Label fx:id="label112112" layoutX="99.0" layoutY="77.0" text=":" />
             <Label fx:id="label113121" layoutX="2.0" layoutY="113.0" text="Ort" />
-            <TextField fx:id="tf01_std_start" layoutX="52.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf02_min_start" layoutX="113.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf03_ort_start" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
+            <NumberTextField fx:id="tf01_std_start" layoutX="52.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf02_min_start" layoutX="113.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
+            <LetterTextField fx:id="tf03_ort_start" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
       <Pane fx:id="p4_zwischen" layoutX="406.0" layoutY="168.0" prefHeight="253.0" prefWidth="183.0">
@@ -56,12 +54,12 @@
             <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach" />
             <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen" />
             <Label fx:id="label1131212" layoutX="6.0" layoutY="226.0" text="Ort" />
-            <TextField fx:id="tf04_std_zwischen_1" layoutX="53.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf05_min_zwischen_1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf06_std_zwischen_2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf07_min_zwischen_2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf04_std_zwischen_1" layoutX="53.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf05_min_zwischen_1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf06_std_zwischen_2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf07_min_zwischen_2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
             <TextField fx:id="tf08_einfuegen_ort" layoutX="114.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf09_ort_zwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
+            <LetterTextField fx:id="tf09_ort_zwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
       <Pane fx:id="p5_ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="183.0">
@@ -72,9 +70,9 @@
             <Label fx:id="label1111121" layoutY="40.0" text="Datum" />
             <Label fx:id="label1121121" layoutX="99.0" layoutY="77.0" text=":" />
             <Label fx:id="label1131211" layoutX="2.0" layoutY="113.0" text="Ort" />
-            <TextField fx:id="tf10_std_ende" layoutX="52.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf11_min_ende" layoutX="113.0" layoutY="75.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf12_ort_ende" layoutX="52.0" layoutY="110.0" prefHeight="25.0" prefWidth="122.0" />
+            <NumberTextField fx:id="tf10_std_ende" layoutX="52.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf11_min_ende" layoutX="113.0" layoutY="75.0" prefHeight="25.0" prefWidth="35.0" />
+            <LetterTextField fx:id="tf12_ort_ende" layoutX="52.0" layoutY="110.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
       <Pane fx:id="p6_zeit" layoutX="22.0" layoutY="485.0" prefHeight="80.0" prefWidth="376.0">

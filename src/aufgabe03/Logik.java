@@ -17,10 +17,11 @@ public class Logik{
         this.con_obj = con_obj;
     }
 
+    @SuppressWarnings("unchecked")
     public void startHinzufuegen(DatePicker dp_start, NumberTextField tf01_std_start, NumberTextField tf02_min_start, LetterTextField tf03_ort_start) throws Exception{
         LocalDate ankunftAbreiseDatum;
 
-        if((con_obj.getReiseList().size()) != 0){
+        if((con_obj.getListView().getItems().size()) != 0){
             throw new IllegalArgumentException("Es ist bereits ein Startort vorhanden, Sie koennen diesen ersetzen,\n" +
                                                 "aber nicht direkt austauschen.");
         }
@@ -37,7 +38,8 @@ public class Logik{
 
         Ort tempStartOrt = new Ort(ortName, ankunftAbreiseDatum, ankunftAbreiseDatum, ankunftAbreiseUhrzeit, ankunftAbreiseUhrzeit);
 
-        con_obj.getReiseList().add(tempStartOrt);
+        con_obj.getListView().getItems().add(tempStartOrt);
+        System.out.println(con_obj.getListView().getItems().get(0).toString());
     }
 
 

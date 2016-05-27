@@ -6,7 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+
+import java.time.LocalDate;
 
 public class Controller {
 	/** Variable Deklaration
@@ -37,19 +40,47 @@ public class Controller {
 	@FXML
 	private Pane 				p1_gesamt, p2_reise, p3_start, p4_zwischen, p5_ende, p6_zeit;
 
+	/** Tabellen Struktur erstellen */
 	@FXML
-	private ListView<Ort> 		lv1_reise;
+	private TableView<Ort> 		tvTable;
 
+	@FXML
+	private TableColumn<Ort, String>	tvNr, tvOrt, tvAnkunftsDatum, tvAnkunftsUhrzeit, tvAbreiseDatum, tvAbreiseUhrzeit;
+
+	@FXML
 	private ObservableList<Ort> reiseItems;
 
 	/** Konstruktor
 	 *  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
 	 *  Variable gespeichert wird und uebergibt this fuer die Referenz aus sich*/
 	public Controller(){
-		lv1_reise = new ListView<Ort>();
+		tvTable = new TableView<Ort>();
 		reiseItems =FXCollections.observableArrayList();
-		lv1_reise.setItems(reiseItems);
+		tvTable.setItems(reiseItems);
 		l_obj = new Logik(this);
+
+
+		/** Hier wird testweise eine Reise Orte in die Tabelle geschrieben */
+		Ort o1, o2, o3, o4;
+		LocalDate lo1;
+		Uhrzeit uh1;
+
+		try {
+			uh1 = new Uhrzeit(12,12);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		lo1 = LocalDate.of(Integer.parseInt("2016"), Integer.parseInt("8"), Integer.parseInt("9"));
+
+		o1 = new Ort("Hamburg", lo1, lo1, uh1, uh1); /** Ist initialisiert */
+		o2 = new Ort("Berlin", lo1, lo1, uh1, uh1);
+		o3 = new Ort("Bremen", lo1, lo1, uh1, uh1);
+		o4 = new Ort("Frankfurt", lo1, lo1, uh1, uh1);
+
+		tvTable.getItems().addAll(o1, o2, o3, o4);
+
+		tvNr.setCellFactory(new PropertyValueFactory<Ort, String>());
 	}
 
 	/** Methoden */
@@ -83,7 +114,15 @@ public class Controller {
 
 	}
 
-	protected ObservableList getReiseList(){
-		return reiseItems;
+	protected void createTableColum(){
+		tvNr = new TableColumn<>("Nr.");
+	}
+
+	protected void SetOrtObjekt(int index, Ort ort_obj){
+
+	}
+
+	protected TableView<Ort> getListView(){
+		return tvTable;
 	}
 }
