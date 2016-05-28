@@ -20,6 +20,10 @@ public class Controller implements Initializable {
 	 *  wenn sie den gleichen Namen haben, wie ihre fx:id */
 	private Logik lObj;
 
+
+	/** 1 Startort, 0 Zwischenort, -1 Endort*/
+	private int stationFlag;
+
 	/** Die ganzen Variablen Namen muessen angepasst werden .. Konvention und so! */
 	@FXML
 	private DatePicker 			dp1Start, dp2Zwischen1, dp3Zwischen2, dp4Ende;
@@ -84,8 +88,9 @@ public class Controller implements Initializable {
 	
 	@FXML
 	public void buttonStartPressed() {
+		stationFlag = 1;
 		try {
-			lObj.startHinzufuegen(dp1Start.getValue(), Integer.parseInt(tf01StdStart.getText()), Integer.parseInt(tf02MinStart.getText()), tf03OrtStart.getText());
+			lObj.startHinzufuegen(dp1Start.getValue(), Integer.parseInt(tf01StdStart.getText()), Integer.parseInt(tf02MinStart.getText()), tf03OrtStart.getText(), stationFlag);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -98,11 +103,12 @@ public class Controller implements Initializable {
 	
 	@FXML
 	public void buttonZwischenPressed() {
+		stationFlag = 0;
 		try {
 			/** Memo an mich - die Parameter sind eventuell doch etwas viele */
 			lObj.zwischenStationHinzufuegen(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
 											Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
-											Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText());
+											Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), stationFlag);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -116,7 +122,7 @@ public class Controller implements Initializable {
 	@FXML
 	public void buttonEndePressed(){
 		try {
-			lObj.endeHinzufuegen(dp4Ende.getValue(), Integer.parseInt(tf10StdEnde.getText()), Integer.parseInt(tf11MinEnde.getText()), tf12OrtEnde.getText());
+			lObj.endeHinzufuegen(dp4Ende.getValue(), Integer.parseInt(tf10StdEnde.getText()), Integer.parseInt(tf11MinEnde.getText()), tf12OrtEnde.getText(), stationFlag);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);

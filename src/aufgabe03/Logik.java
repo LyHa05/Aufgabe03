@@ -21,12 +21,12 @@ public class Logik{
 
 
     /** Die Methode "startHinzufuegen" fuegt einen Startpunkt in die Liste ein, sofern noch keiner in der Liste ist */
-    public void startHinzufuegen(LocalDate dp,Integer std,Integer min, String name) throws Exception{
+    public void startHinzufuegen(LocalDate dp,Integer std,Integer min, String name, int stationFlag) throws Exception{
         if(!(conObj.getListView().getItems().size() == 0)){
             throw new IllegalArgumentException("Es ist bereits ein Startort vorhanden");
         }
 
-        Ort temp_ort = new Ort(name, std, min, std, min, dp, dp);
+        Ort temp_ort = new Ort(name, std, min, std, min, dp, dp, stationFlag);
 
         conObj.getListView().getItems().add(temp_ort);
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
@@ -36,8 +36,8 @@ public class Logik{
      * chronologisch Sinn ergeben eine Zwischenstation in die Liste ein.
      *
      * Ist momentan noch so implementiert, dass sie nach dem letzten Element den Ort anfuegt */
-    public void zwischenStationHinzufuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name) throws Exception{
-        Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt);
+    public void zwischenStationHinzufuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag) throws Exception{
+        Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
 
         if(conObj.getListView().getItems().size() == 0){
             throw new IllegalArgumentException("Zuerst muss ein Startort eingefuegt werden.");
@@ -55,12 +55,12 @@ public class Logik{
      *  wird ueberprueft, ob das letzte Abfahrtsdatum spaeter ist, als das Anreisedatum am Endzeitpunkt, ist auch
      *  dies nicht der Fall, wird der Endort zur Liste hinzugefuegt und die Boolean "startUndEnde" auf true gesetzt
      * */
-    public void endeHinzufuegen(LocalDate dp,Integer std,Integer min, String name) throws Exception{
+    public void endeHinzufuegen(LocalDate dp,Integer std,Integer min, String name,int stationFlag) throws Exception{
         if(startUndEnde){
             throw new IllegalArgumentException("Es ist bereits ein Endort hinzugefuegt");
         }
 
-        Ort temp_ort = new Ort(name, std, min, std, min, dp, dp);
+        Ort temp_ort = new Ort(name, std, min, std, min, dp, dp, stationFlag);
 
         if(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1)).compareTo(temp_ort) == -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen.");

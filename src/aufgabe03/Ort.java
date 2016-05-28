@@ -12,11 +12,11 @@ import java.time.LocalDate;
 
 public class Ort implements Comparable<Ort>{
     String name, uhrzeitAnkunft, uhrzeitAbfahrt;
-    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt;
+    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt, stationFlag;
     Integer index;
     LocalDate ankunft, abfahrt;
 
-    public Ort(String name, int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt, LocalDate ankunft, LocalDate abfahrt) throws Exception{
+    public Ort(String name, int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt, LocalDate ankunft, LocalDate abfahrt, int stationFlag) throws Exception{
         if(!(ueberpruefeUhrzeit(stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt))){
             throw new IllegalArgumentException("Die Uhrzeit ist unrealistisch!");
         } else if (ankunft.compareTo(abfahrt) == 1){
@@ -24,11 +24,12 @@ public class Ort implements Comparable<Ort>{
         } else {
                 this.name = name;
                 this.stdAbfahrt = stdAbfahrt;
-                this.minAbfahrt = minAnkunft;
+                this.minAbfahrt = minAbfahrt;
                 this.stdAnkunft = stdAnkunft;
                 this.minAnkunft = minAnkunft;
                 this.ankunft = ankunft;
                 this.abfahrt = abfahrt;
+                this.stationFlag = stationFlag;
         }
 
         /** 'Baut' aus den Uhrzeit-Einzel-Teilen zwei Strings fuer die Darstellung in der Tabelle */
@@ -91,10 +92,9 @@ public class Ort implements Comparable<Ort>{
         return result;
     }
 
-    public int getStdAbfahrt() {
+    public int getStationFlag() { return stationFlag; }
 
-        return stdAbfahrt;
-    }
+    public int getStdAbfahrt() { return stdAbfahrt; }
 
     public int getMinAbfahrt() {
         return minAbfahrt;
