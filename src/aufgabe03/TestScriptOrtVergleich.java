@@ -6,6 +6,7 @@ import java.time.LocalDate;
  * Created by chris on 28.05.16.
  */
 public class TestScriptOrtVergleich {
+    /** Hier ist jetzt was verandert! */
     public static void main(String[] args) throws Exception{
         Ort o1, o2, o3, o4;
         LocalDate o1Ankunft, o1Abfahrt, o2Ankunft, o2Abfahrt, o3Ankunft, o3Abfahrt, o4Ankunft, o4Abfahrt;
