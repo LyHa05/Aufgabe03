@@ -8,7 +8,7 @@ import java.util.Iterator;
 /**
  * @author  Chris Thiele, Lydia Pflug
  * @date    24.05.2016
- *
+ * Test Git mit IntelliJ
  * Die Klasse 'Logik' repraesentiert die Logik Schicht des Programms.
  */
 public class Logik{
