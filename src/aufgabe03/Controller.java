@@ -59,7 +59,7 @@ public class Controller implements Initializable {
 	/** ^^^^DER KOMMENTAR MUSS VORM ABSCHICKEN GELOESCHT WERDEN ... ich seh schon meine PVL davon schwimmen */
 	@Override
 	public void initialize(URL location, ResourceBundle resources){
-		tvNr.setCellValueFactory(new PropertyValueFactory<Ort, Integer>("dummy"));
+		tvNr.setCellValueFactory(new PropertyValueFactory<Ort, Integer>("index"));
 		tvOrt.setCellValueFactory(new PropertyValueFactory<Ort, String>("name"));
 		tvAnkunftsDatum.setCellValueFactory(new PropertyValueFactory<Ort, LocalDate>("ankunft"));
 		tvAnkunftsUhrzeit.setCellValueFactory(new PropertyValueFactory<Ort, String>("uhrzeitAnkunft"));
