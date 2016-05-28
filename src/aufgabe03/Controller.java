@@ -22,9 +22,6 @@ public class Controller implements Initializable {
 
 	/** Die ganzen Variablen Namen muessen angepasst werden .. Konvention und so! */
 	@FXML
-	private Button 				bt1Start, bt2Zwischen, bt3Ende;
-
-	@FXML
 	private DatePicker 			dp1Start, dp2Zwischen1, dp3Zwischen2, dp4Ende;
 
 	@FXML
@@ -58,6 +55,8 @@ public class Controller implements Initializable {
 	@FXML
 	private ObservableList<Ort> reiseOrte =FXCollections.observableArrayList();
 
+	/** Gut das ich diese Methode erst nach 3 Stunden auf StackOverflow gefunden habe .. Probz an Kahlidebrandi .. */
+	/** ^^^^DER KOMMENTAR MUSS VORM ABSCHICKEN GELOESCHT WERDEN ... ich seh schon meine PVL davon schwimmen */
 	@Override
 	public void initialize(URL location, ResourceBundle resources){
 		tvNr.setCellValueFactory(new PropertyValueFactory<Ort, Integer>("dummy"));
@@ -100,15 +99,15 @@ public class Controller implements Initializable {
 	@FXML
 	public void buttonZwischenPressed() {
 		try {
-			/** Memo an mich - die Parameter sind eventuell doch etwas Viele */
+			/** Memo an mich - die Parameter sind eventuell doch etwas viele */
 			lObj.zwischenStationHinzufuegen(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
 											Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
 											Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText());
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
-			alert.setTitle("Fehler beim Hinzufuegen des Startortes");
-			alert.setHeaderText("Beim hinzufuegen des Startortes ist ein Fehler aufgetreten");
+			alert.setTitle("Fehler beim Hinzufuegen des Zwischenortes");
+			alert.setHeaderText("Beim hinzufuegen des Zwischenortes ist ein Fehler aufgetreten");
 			alert.setContentText(e.getMessage());
 			alert.showAndWait();
 		}
@@ -116,7 +115,16 @@ public class Controller implements Initializable {
 
 	@FXML
 	public void buttonEndePressed(){
-
+		try {
+			lObj.endeHinzufuegen(dp4Ende.getValue(), Integer.parseInt(tf10StdEnde.getText()), Integer.parseInt(tf11MinEnde.getText()), tf12OrtEnde.getText());
+		} catch (Exception e) {
+			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("Fehler beim Hinzufuegen des Endortes");
+			alert.setHeaderText("Beim hinzufuegen des Endortes ist ein Fehler aufgetreten");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
 	}
 
 	@FXML
@@ -124,7 +132,7 @@ public class Controller implements Initializable {
 
 	}
 
-	/** TestMethode zur Erstellung von einigen Ort Objekten und zur Anzeige in der Tabelle! */
+	/** TestMethode zur Erstellung von einigen Ort Objekten und zur Anzeige in der Tabelle!
 	public ObservableList<Ort> getSomeItems() throws Exception{
 		ObservableList<Ort> reiseOrte =FXCollections.observableArrayList();
 		Ort o1, o2, o3, o4;
@@ -140,7 +148,7 @@ public class Controller implements Initializable {
 
 		reiseOrte.addAll(o1, o2, o3, o4);
 		return reiseOrte;
-	}
+	} */
 
 	protected TableView<Ort> getListView(){
 		return tvTable;

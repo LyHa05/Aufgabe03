@@ -66,7 +66,33 @@ public class Ort implements Comparable<Ort>{
         return minAnkunft;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ort ort = (Ort) o;
+
+        if (stdAnkunft != ort.stdAnkunft) return false;
+        if (minAnkunft != ort.minAnkunft) return false;
+        if (stdAbfahrt != ort.stdAbfahrt) return false;
+        if (minAbfahrt != ort.minAbfahrt) return false;
+        return name != null ? name.equals(ort.name) : ort.name == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + stdAnkunft;
+        result = 31 * result + minAnkunft;
+        result = 31 * result + stdAbfahrt;
+        result = 31 * result + minAbfahrt;
+        return result;
+    }
+
     public int getStdAbfahrt() {
+
         return stdAbfahrt;
     }
 
