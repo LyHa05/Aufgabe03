@@ -56,6 +56,11 @@ public class Logik{
      *  dies nicht der Fall, wird der Endort zur Liste hinzugefuegt und die Boolean "startUndEnde" auf true gesetzt
      * */
     public void endeHinzufuegen(LocalDate dp,Integer std,Integer min, String name,int stationFlag) throws Exception{
+
+        if(conObj.getListView().getItems().size() == 0){
+            throw new IllegalArgumentException("Zuerst muss ein Startort eingefuegt werden.");
+        }
+
         if(startUndEnde){
             throw new IllegalArgumentException("Es ist bereits ein Endort hinzugefuegt");
         }
@@ -69,6 +74,30 @@ public class Logik{
         conObj.getListView().getItems().add(temp_ort);
         startUndEnde = true;
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
+    }
+
+    public void changeZwischenStation(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
+        if((conObj.getListView().getItems().size()-1) < index){
+            throw new ArrayIndexOutOfBoundsException("Der ist Ort nicht vorhanden");
+        }
+
+        if(conObj.getListView().getItems().get(index).getStationFlag() == 1){
+            throw new IllegalArgumentException("Der Startort kann nicht ausgetauscht werden.");
+        }
+
+        if((conObj.getListView().getItems().get(index).getStationFlag() == -1)){
+            throw new IllegalArgumentException("Der Endort kann nicht ausgetauscht werden.");
+        }
+
+        Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
+
+        if(conObj.getListView().getItems().get(index-1).compareTo(temp_ort) == -1){
+            throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
+        }
+
+        if(temp_ort.compareTo(conObj.getListView().getItems().get(index+1)) == -1){
+            throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt davor");
+        }
     }
 
     public void berechnenZeit() throws Exception{

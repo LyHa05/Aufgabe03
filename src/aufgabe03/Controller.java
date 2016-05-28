@@ -31,12 +31,12 @@ public class Controller implements Initializable {
 	private TextField 			tf08EinfuegenOrt;
 
 	@FXML
-	private LetterTextField 	tf03OrtStart, tf09OrtZwischen, tf12OrtEnde;
+	private LetterTextField 	tf03OrtStart, tf12OrtEnde;
 
 	@FXML
 	private NumberTextField 	tf01StdStart, tf02MinStart, tf04StdZwischen1,
 								tf05MinZwischen1, tf06StdZwischen2, tf07MinZwischen2,
-								tf10StdEnde, tf11MinEnde;
+								tf10StdEnde, tf11MinEnde, tf09OrtZwischen;
 	@FXML
 	private Label 				l2NettoReise, l3BruttoReise;
 
@@ -129,6 +129,18 @@ public class Controller implements Initializable {
 
 	@FXML
 	public void buttonChangeZwischenOrt(){
+		try {
+			lObj.changeZwischenStation(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
+					Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
+					Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), 0, Integer.parseInt(tf08EinfuegenOrt.getText()));
+		} catch (Exception e) {
+			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("Fehler beim Aendern eines Zwischenortes");
+			alert.setHeaderText("Beim Aendern des Zwischenortes ist ein Fehler aufgetreten");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
 	}
 
 	@FXML
