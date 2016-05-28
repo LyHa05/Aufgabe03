@@ -44,7 +44,6 @@ public class Ort implements Comparable<Ort>{
         sbAbfahrt.append(":");
         sbAbfahrt.append(minAbfahrt);
         uhrzeitAbfahrt = sbAbfahrt.toString();
-
     }
 
     public Integer getIndex(){

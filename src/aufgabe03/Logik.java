@@ -86,6 +86,38 @@ public class Logik{
         }
     }
 
+    private void setLabel(double minutenBrutto, double minutenNetto){
+        double stundenBrutto, stundenNetto, tageBrutto, tageNetto;
+
+        /** Berechnen Minuten auf Stunden */
+        stundenBrutto = (minutenBrutto/60);
+        stundenNetto = (minutenNetto/60);
+
+        /** Berechnen Stunden auf Tage */
+        tageBrutto = (stundenBrutto/24);
+        tageNetto = (stundenNetto/24);
+
+        /** StringBuilder erstellt die darzustellenden Strings */
+        StringBuilder strBrutto = new StringBuilder();
+        strBrutto.append("Tage: ");
+        strBrutto.append(tageBrutto);
+        strBrutto.append(" | Stunden: ");
+        strBrutto.append(stundenBrutto);
+        strBrutto.append(" | Minuten: ");
+        strBrutto.append(minutenBrutto);
+
+        StringBuilder strNetto = new StringBuilder();
+        strNetto.append("Tage: ");
+        strNetto.append(tageNetto);
+        strNetto.append(" | Stunden: ");
+        strNetto.append(stundenNetto);
+        strNetto.append(" | Minuten: ");
+        strNetto.append(minutenNetto);
+
+        conObj.getBruttoLabel().setText(strBrutto.toString());
+        conObj.getNettoLabel().setText(strNetto.toString());
+    }
+
     /** geht nicht :(
     public void setOrtListe(ObservableList<Ort> ortListe){
         this.ortListe = ortListe;

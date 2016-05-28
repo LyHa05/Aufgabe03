@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -39,10 +38,7 @@ public class Controller implements Initializable {
 								tf05MinZwischen1, tf06StdZwischen2, tf07MinZwischen2,
 								tf10StdEnde, tf11MinEnde;
 	@FXML
-	private Label 				l1Ueberschrift, l2NettoReise, l3BruttoReise;
-
-	@FXML
-	private Pane 				p1Gesamt, p2Reise, p3Start, p4Zwischen, p5Ende, p6Zeit;
+	private Label 				l2NettoReise, l3BruttoReise;
 
 	/** Tabellen Struktur erstellen */
 	@FXML private TableView<Ort> tvTable;
@@ -59,8 +55,6 @@ public class Controller implements Initializable {
 	@FXML
 	private ObservableList<Ort> reiseOrte =FXCollections.observableArrayList();
 
-	/** Gut das ich diese Methode erst nach 3 Stunden auf StackOverflow gefunden habe .. Probz an Kahlidebrandi .. */
-	/** ^^^^DER KOMMENTAR MUSS VORM ABSCHICKEN GELOESCHT WERDEN ... ich seh schon meine PVL davon schwimmen */
 	@Override
 	public void initialize(URL location, ResourceBundle resources){
 		tvNr.setCellValueFactory(new PropertyValueFactory<Ort, Integer>("index"));
@@ -90,7 +84,7 @@ public class Controller implements Initializable {
 	public void buttonStartPressed() {
 		stationFlag = 1;
 		try {
-			lObj.startHinzufuegen(dp1Start.getValue(), Integer.parseInt(tf01StdStart.getText()), Integer.parseInt(tf02MinStart.getText()), tf03OrtStart.getText(), stationFlag);
+			lObj.startHinzufuegen(dp1Start.getValue(), Integer.parseInt(tf01StdStart.getText()), Integer.parseInt(tf02MinStart.getText()), tf03OrtStart.getText(), 1);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -108,7 +102,7 @@ public class Controller implements Initializable {
 			/** Memo an mich - die Parameter sind eventuell doch etwas viele */
 			lObj.zwischenStationHinzufuegen(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
 											Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
-											Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), stationFlag);
+											Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -122,7 +116,7 @@ public class Controller implements Initializable {
 	@FXML
 	public void buttonEndePressed(){
 		try {
-			lObj.endeHinzufuegen(dp4Ende.getValue(), Integer.parseInt(tf10StdEnde.getText()), Integer.parseInt(tf11MinEnde.getText()), tf12OrtEnde.getText(), stationFlag);
+			lObj.endeHinzufuegen(dp4Ende.getValue(), Integer.parseInt(tf10StdEnde.getText()), Integer.parseInt(tf11MinEnde.getText()), tf12OrtEnde.getText(), -1);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -134,29 +128,38 @@ public class Controller implements Initializable {
 	}
 
 	@FXML
-	public void buttonReiseErstellenPressed(){
-
+	public void buttonChangeZwischenOrt(){
 	}
 
-	/** TestMethode zur Erstellung von einigen Ort Objekten und zur Anzeige in der Tabelle!
-	public ObservableList<Ort> getSomeItems() throws Exception{
-		ObservableList<Ort> reiseOrte =FXCollections.observableArrayList();
-		Ort o1, o2, o3, o4;
-		LocalDate d1, d2;
+	@FXML
+	public void buttonReiseErstellenPressed(){
+		try {
+			lObj.berechnenZeit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("Beim Berechnen ist ein Fehler aufgetreten");
+			alert.setHeaderText("Ein Fehler ist beim Berechnen der Brutto und Netto Zeit aufgetreten.");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
+	}
 
-		d1 = LocalDate.of(2012, 5, 12);
-		d2 = LocalDate.of(2013, 5, 12);
-
-		o1 = new Ort("Hamburg", 12, 12, 8, 22, d1, d2);
-		o2 = new Ort("Frankfurt", 1, 12, 8, 22, d1, d2);
-		o3 = new Ort("Berlin", 12, 9, 22, 22, d1, d2);
-		o4 = new Ort("Bremen", 13, 22, 8, 22, d1, d2);
-
-		reiseOrte.addAll(o1, o2, o3, o4);
-		return reiseOrte;
-	} */
+	protected void updateIndex(){
+		for(Ort tempOrt : reiseOrte){
+			tempOrt.setIndex(reiseOrte.indexOf(tempOrt));
+		}
+	}
 
 	protected TableView<Ort> getListView(){
 		return tvTable;
+	}
+
+	protected Label getNettoLabel(){
+		return l2NettoReise;
+	}
+
+	protected Label getBruttoLabel(){
+		return l3BruttoReise;
 	}
 }

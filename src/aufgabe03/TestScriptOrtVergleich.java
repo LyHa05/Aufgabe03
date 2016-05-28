@@ -20,10 +20,10 @@ public class TestScriptOrtVergleich {
         o4Ankunft = LocalDate.of(1993, 5, 23);
         o4Abfahrt = LocalDate.of(1994, 5, 26);
 
-        o1 = new Ort("Hamburg", 12, 0, 12, 0, o1Ankunft, o1Abfahrt);
-        o2 = new Ort("Berlin", 12, 0, 12, 0, o2Ankunft, o2Abfahrt);
-        o3 = new Ort("Frankfurt", 13, 0, 14, 0, o3Ankunft, o3Abfahrt);
-        o4 = new Ort("Berne", 13, 0, 16, 0, o4Ankunft, o4Abfahrt);
+        o1 = new Ort("Hamburg", 12, 0, 12, 0, o1Ankunft, o1Abfahrt, 1);
+        o2 = new Ort("Berlin", 12, 0, 12, 0, o2Ankunft, o2Abfahrt, 0);
+        o3 = new Ort("Frankfurt", 13, 0, 14, 0, o3Ankunft, o3Abfahrt, 0);
+        o4 = new Ort("Berne", 13, 0, 16, 0, o4Ankunft, o4Abfahrt,-1);
 
         System.out.println("o1: " + o1.toString());
         System.out.println("o1: " + o2.toString());

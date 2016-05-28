@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import aufgabe03.NumberTextField?>
-<?import aufgabe03.LetterTextField?>
+<?import aufgabe03.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+
 <AnchorPane fx:id="p1Gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
       <Pane fx:id="p2Reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
@@ -19,7 +21,7 @@
                <columns>
                   <TableColumn fx:id="tvNr" prefWidth="25.0" text="Nr.">
                      <cellValueFactory>
-                        <PropertyValueFactory property="dummy" />
+                        <PropertyValueFactory property="index" />
                      </cellValueFactory>
                   </TableColumn>
                   <TableColumn fx:id="tvOrt" prefWidth="90.0" text="Ort">
@@ -37,12 +39,12 @@
                         <PropertyValueFactory property="uhrzeitAnkunft" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="tvAbreiseDatum" prefWidth="65.0" text="Abreise" >
+                  <TableColumn fx:id="tvAbreiseDatum" prefWidth="65.0" text="Abreise">
                      <cellValueFactory>
                         <PropertyValueFactory property="abfahrt" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="tvAbreiseUhrzeit" prefWidth="65.0" text="Uhrzeit" >
+                  <TableColumn fx:id="tvAbreiseUhrzeit" prefWidth="65.0" text="Uhrzeit">
                      <cellValueFactory>
                         <PropertyValueFactory property="uhrzeitAbfahrt" />
                      </cellValueFactory>
@@ -75,15 +77,22 @@
             <Label fx:id="l09UhrzeitZwischen2" layoutX="3.0" layoutY="150.0" text="Uhrzeit" />
             <Label fx:id="l10DatumZwischen2" layoutY="113.0" text="Datum" />
             <Label fx:id="l11Zwischen2" layoutX="99.0" layoutY="150.0" text=":" />
-            <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach" />
-            <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen" />
+            <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
             <Label fx:id="l12ZwischenOrt" layoutX="6.0" layoutY="226.0" text="Ort" />
             <NumberTextField fx:id="tf04StdZwischen1" layoutX="53.0" layoutY="73.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf05MinZwischen1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf06StdZwischen2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf07MinZwischen2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf08EinfuegenOrt" layoutX="114.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
+            <TextField fx:id="tf08EinfuegenOrt" layoutX="103.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
             <LetterTextField fx:id="tf09OrtZwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="btChange" onAction="#buttonChangeZwischenOrt" layoutX="144.0" layoutY="190.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="+" />
          </children>
       </Pane>
       <Pane fx:id="p5Ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="183.0">
