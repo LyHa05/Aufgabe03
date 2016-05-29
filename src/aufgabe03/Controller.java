@@ -174,4 +174,9 @@ public class Controller implements Initializable {
 	protected Label getBruttoLabel(){
 		return l3BruttoReise;
 	}
+
+	/** Setter-Methode für ReiseOrte (ggf. wieder entfernen)*/
+	void setReiseOrte(ObservableList<Ort> reiseOrte) {
+		this.reiseOrte = reiseOrte;
+	}
 }

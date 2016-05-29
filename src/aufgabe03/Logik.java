@@ -38,8 +38,8 @@ public class Logik{
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
     }
 
-    /**Die Methode "zwischenStationHinzufuegen fuegt nacht ueberpruefung, ob die Daten korrekt sind und
-     * chronologisch Sinn ergeben eine Zwischenstation in die Liste ein.
+    /**Die Methode "zwischenStationHinzufuegen fuegt nacht Ueberpruefung, ob die Daten korrekt sind und
+     * chronologisch Sinn ergeben, eine Zwischenstation in die Liste ein.
      *
      * Ist momentan noch so implementiert, dass sie nach dem letzten Element den Ort anfuegt */
     public void zwischenStationHinzufuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag) throws Exception{

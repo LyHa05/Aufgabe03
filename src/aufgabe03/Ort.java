@@ -77,17 +77,31 @@ public class Ort implements Comparable<Ort>{
         if (minAnkunft != ort.minAnkunft) return false;
         if (stdAbfahrt != ort.stdAbfahrt) return false;
         if (minAbfahrt != ort.minAbfahrt) return false;
-        return name != null ? name.equals(ort.name) : ort.name == null;
+        if (stationFlag != ort.stationFlag) return false;
+        if (name != null ? !name.equals(ort.name) : ort.name != null) return false;
+        if (uhrzeitAnkunft != null ? !uhrzeitAnkunft.equals(ort.uhrzeitAnkunft) : ort.uhrzeitAnkunft != null)
+            return false;
+        if (uhrzeitAbfahrt != null ? !uhrzeitAbfahrt.equals(ort.uhrzeitAbfahrt) : ort.uhrzeitAbfahrt != null)
+            return false;
+        if (index != null ? !index.equals(ort.index) : ort.index != null) return false;
+        if (ankunft != null ? !ankunft.equals(ort.ankunft) : ort.ankunft != null) return false;
+        return abfahrt != null ? abfahrt.equals(ort.abfahrt) : ort.abfahrt == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (uhrzeitAnkunft != null ? uhrzeitAnkunft.hashCode() : 0);
+        result = 31 * result + (uhrzeitAbfahrt != null ? uhrzeitAbfahrt.hashCode() : 0);
         result = 31 * result + stdAnkunft;
         result = 31 * result + minAnkunft;
         result = 31 * result + stdAbfahrt;
         result = 31 * result + minAbfahrt;
+        result = 31 * result + stationFlag;
+        result = 31 * result + (index != null ? index.hashCode() : 0);
+        result = 31 * result + (ankunft != null ? ankunft.hashCode() : 0);
+        result = 31 * result + (abfahrt != null ? abfahrt.hashCode() : 0);
         return result;
     }
 
