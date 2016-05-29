@@ -89,7 +89,7 @@ public class Controller implements Initializable {
 			e.printStackTrace();
 			Alert alert = new Alert(Alert.AlertType.WARNING);
 			alert.setTitle("Fehler beim Hinzufuegen des Startortes");
-			alert.setHeaderText("Beim hinzufuegen des Startortes ist ein Fehler aufgetreten");
+			alert.setHeaderText("Beim Hinzufuegen des Startortes ist ein Fehler aufgetreten");
 			alert.setContentText(e.getMessage());
 			alert.showAndWait();
 		}

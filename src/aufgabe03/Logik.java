@@ -4,16 +4,19 @@ import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.util.Iterator;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @author  Chris Thiele, Lydia Pflug
  * @date    24.05.2016
- * Test Git mit IntelliJ
+ *
  * Die Klasse 'Logik' repraesentiert die Logik Schicht des Programms.
  */
 public class Logik{
     private Controller conObj;
     private boolean startUndEnde = false;
+    double bruttoZeit = 0.0; // gesamte Reisezeit in Minuten
+    double nettoZeit = 0.0; // Reisezeit ohne Aufenthalte in Minuten
 
     public Logik(Controller con_obj){
         this.conObj = con_obj;
@@ -24,6 +27,9 @@ public class Logik{
     public void startHinzufuegen(LocalDate dp,Integer std,Integer min, String name, int stationFlag) throws Exception{
         if(!(conObj.getListView().getItems().size() == 0)){
             throw new IllegalArgumentException("Es ist bereits ein Startort vorhanden");
+        }
+        if(name.equals("")){
+            throw new IllegalArgumentException("Bitte geben Sie einen Startort ein!");
         }
 
         Ort temp_ort = new Ort(name, std, min, std, min, dp, dp, stationFlag);
@@ -47,6 +53,10 @@ public class Logik{
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen.");
         }
 
+        if(name.equals("")){
+            throw new IllegalArgumentException("Bitte geben Sie einen Zwischenort ein!");
+        }
+
         conObj.getListView().getItems().add(temp_ort);
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
     }
@@ -63,6 +73,10 @@ public class Logik{
 
         if(startUndEnde){
             throw new IllegalArgumentException("Es ist bereits ein Endort hinzugefuegt");
+        }
+
+        if(name.equals("")){
+            throw new IllegalArgumentException("Bitte geben Sie einen Endort ein!");
         }
 
         Ort temp_ort = new Ort(name, std, min, std, min, dp, dp, stationFlag);
@@ -100,19 +114,41 @@ public class Logik{
         }
     }
 
-    public void berechnenZeit() throws Exception{
-        int bruttoGesamtZeit;
+    public void berechnenZeit() throws Exception {
 
-        if(!startUndEnde){
-            throw new IllegalArgumentException("Es fehlt noch ein Start oder Endort");
+        double aufenthaltsZeit = 0.0; // Aufenthaltzeit bei Zwischenstationen in Minuten
+        Ort temp_start_ort = null;
+        Ort temp_ende_ort = null;
+
+        if (!startUndEnde) {
+            throw new IllegalArgumentException("Es fehlt noch ein Start- oder Endort");
         }
-
-        Iterator<Ort> iteratorListe = conObj.getListView().getItems().iterator();
-
-        //
-        while(iteratorListe.hasNext()){
-
+        System.out.println();
+        for (Iterator<Ort> iteratorListe = conObj.getListView().getItems().iterator(); iteratorListe.hasNext();) {
+            Ort ort = iteratorListe.next();
+            if (ort.getStationFlag() == 1) {
+                temp_start_ort = ort;
+            } else if (ort.getStationFlag() == -1) {
+                temp_ende_ort = ort;
+            } else if (ort.getStationFlag() == 0) {
+                aufenthaltsZeit += zeitDifferenzRechner(ort, ort);
+            }
         }
+        bruttoZeit = zeitDifferenzRechner(temp_start_ort, temp_ende_ort);
+        nettoZeit = bruttoZeit - aufenthaltsZeit;
+    }
+
+    private double zeitDifferenzRechner(Ort ort1, Ort ort2) {
+
+        double zeitTage = 0.0;
+        double zeitStunden = 0.0;
+        double zeitMinuten = 0.0;
+        double zeitDifferenz = 0.0;
+
+        zeitTage = Math.abs((ChronoUnit.DAYS.between(ort1.getAbfahrt(), ort2.getAnkunft())) * 24 * 60);
+        zeitStunden = Math.abs((ort1.getStdAnkunft() - ort2.getStdAbfahrt()) * 60);
+        zeitMinuten = Math.abs((ort1.getMinAnkunft() - ort2.getMinAbfahrt()));
+        return zeitDifferenz = zeitTage + zeitStunden + zeitMinuten;
     }
 
     private void setLabel(double minutenBrutto, double minutenNetto){
