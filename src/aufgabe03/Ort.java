@@ -137,10 +137,10 @@ public class Ort implements Comparable<Ort>{
         if(!(stdAbfahrt > -1 && stdAbfahrt < 24)){
             return false;
         }
-        if(!(minAnkunft > -1 && minAnkunft < 61)){
+        if(!(minAnkunft > -1 && minAnkunft < 60)){
             return false;
         }
-        if(!(minAbfahrt > -1 && minAbfahrt < 61)){
+        if(!(minAbfahrt > -1 && minAbfahrt < 60)){
             return false;
         }
         return true;
@@ -172,9 +172,10 @@ public class Ort implements Comparable<Ort>{
             return 1;
         }
 
-        return 0; // Lol Default Return Parameter ..
+        return 0; // Default Return Parameter
     }
 
+    @Override
     public String toString(){
         return "Ort: " + name + " Ankunftsdatum: " + ankunft.toString() + " " + uhrzeitAnkunft + "  Abfahrt " + abfahrt.toString() + " " + uhrzeitAbfahrt;
     }
