@@ -18,8 +18,8 @@ public class Logik{
     double bruttoZeit = 0.0; // gesamte Reisezeit in Minuten
     double nettoZeit = 0.0; // Reisezeit ohne Aufenthalte in Minuten
 
-    public Logik(Controller con_obj){
-        this.conObj = con_obj;
+    public Logik(Controller conObj){
+        this.conObj = conObj;
     }
 
 
