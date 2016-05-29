@@ -129,8 +129,8 @@ public class Ort implements Comparable<Ort>{
         return abfahrt;
     }
 
+    /** Methode ueberprueft Uhrzeit entsprechend 24 Stunden und 60 Minuten*/
     private boolean ueberpruefeUhrzeit(int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt){
-        /** Lydia - da ich ja immer ein > und < Problem habe - checkst du die Werte nochmal ab? Danke :-) */
         if(!(stdAnkunft > -1 && stdAnkunft < 24)){
             return false;
         }
@@ -146,13 +146,13 @@ public class Ort implements Comparable<Ort>{
         return true;
     }
 
+    /**HIER KOMMT IMMER -1 RAUS, DASS MUESSEN WIR MORGEN NOCHMAL IN RUHE DURCHSCHAUEN!!!*/
+
+    /** gibt -1 zurueck, wenn this < other - also wenn dieses Objekt zeitlich hinter dem verglichenen liegt
+     *  gibt 0 zurueck, wenn this = other - also wenn die Objekte zeitlich identisch sind (auch auf Stunden/Minuten)
+     *  gibt 1 zurueck, wenn this > other - also wenn dieses Objekt zeitlich vor dem verglichenen liegt
+     */
     public int compareTo(Ort other){
-        /** gibt -1 zurueck, wenn this < other - also wenn dieses Objekt zeitlich hinter dem verglichenen liegt
-         *  gibt 0 zurueck, wenn this = other - also wenn die Objekte zeitlich identisch sind (auch auf Stunden/Minuten)
-         *  gibt 1 zurueck, wenn this > other - also wenn dieses Objekt zeitlich vor dem verglichenen liegt
-         *
-         *  Ich habs gar nicht erst versucht das short-handed zu machen ... If-Verzweigung des Todes - Bitch
-         */
 
         if(abfahrt.isAfter(other.getAnkunft())){
             return -1;
