@@ -3,7 +3,6 @@ package aufgabe03;
 import static org.junit.Assert.*;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.lang.reflect.Method;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -87,13 +86,10 @@ public class JUnit {
      */
     @Test
     public void testOrtUeberpruefeUhrzeit() throws Exception {
-        LocalDate o8Ankunft = LocalDate.of(2000, 1, 1);
-        LocalDate o8Abfahrt = LocalDate.of(2000, 1, 2);
-        Ort o8 = new Ort("Hamburg", 12, 12, 8, 22, o8Ankunft, o8Abfahrt, 1);
-
-        Method m = Ort.class.getDeclaredMethod("ueberpruefeUhrzeit");
-        m.setAccessible(true);
-        Assert.assertEquals(false, m.invoke(12, 61, 25, 22));
+        LocalDate o11Ankunft = LocalDate.of(2000, 2, 1);
+        LocalDate o11Abfahrt = LocalDate.of(2000, 2, 2);
+        Ort o11 = new Ort("Hamburg", 12, 12, 8, 22, o11Ankunft, o11Abfahrt, 1);
+        assertEquals(false,o11.ueberpruefeUhrzeit(12, 61, 25, 22));
     }
 
     /**
@@ -115,10 +111,9 @@ public class JUnit {
         Ort o10 = new Ort("Berlin", 14, 12, 16, 22, o10Ankunft, o10Abfahrt, -1);
 
        assertEquals(0, o8.compareTo(o9)); // nicht realistische Abfahrts- und Ankunftszeit
-       assertEquals(1,o9.compareTo(o8)); // Ankunftszeit liegt vor Abfahrszeit: Nachfolger.compareTo.Vorfolger
-       assertEquals(1, o10.compareTo(o9)); // realistische Zeitabfolge: Nachfolger.compareTo.Vorfolger
+       assertEquals(1, o9.compareTo(o8)); // Ankunftszeit liegt vor Abfahrszeit: Nachfolger.compareTo.Vorfolger
+       assertEquals(1, o10.compareTo(o9)); // Ankunftszeit liegt vor Abfahrszeit: Nachfolger.compareTo.Vorfolger
        assertEquals(-1, o9.compareTo(o10)); // Ankunftszeit liegt vor Abfahrszeit
-        assertTrue(o10Abfahrt.isAfter(o10Ankunft));
     }
 
 

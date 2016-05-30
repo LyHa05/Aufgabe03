@@ -122,7 +122,7 @@ public class Ort implements Comparable<Ort>{
     }
 
     /** Methode ueberprueft Uhrzeit entsprechend 24 Stunden und 60 Minuten*/
-    private boolean ueberpruefeUhrzeit(int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt){
+    boolean ueberpruefeUhrzeit(int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt){
         if(!(stdAnkunft > -1 && stdAnkunft < 24)){
             return false;
         }
