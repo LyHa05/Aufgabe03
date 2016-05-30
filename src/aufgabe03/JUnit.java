@@ -32,7 +32,7 @@ public class JUnit {
     }
 
     /**
-     * Klasse Ort, überschriebene Methode equals
+     * Klasse Ort, ueberschriebene Methode equals
      *
      * @throws Exception
      */
@@ -47,7 +47,7 @@ public class JUnit {
     }
 
     /**
-     * Klasse Ort, überschriebene Methode hashCode
+     * Klasse Ort, ueberschriebene Methode hashCode
      *
      * @throws Exception
      */
@@ -60,7 +60,7 @@ public class JUnit {
     }
 
     /**
-     * Klasse Ort: prüfen, ob toString überschrieben worden ist
+     * Klasse Ort: pruefen, ob toString eberschrieben worden ist
      *
      * @throws Exception
      */
