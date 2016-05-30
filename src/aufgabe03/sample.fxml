@@ -8,7 +8,7 @@
 <?import aufgabe03.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<AnchorPane fx:id="p1Gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
+<AnchorPane fx:id="p1Gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
       <Pane fx:id="p2Reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">
          <children>
@@ -53,10 +53,10 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="p3Start" layoutX="406.0" layoutY="14.0" prefHeight="140.0" prefWidth="183.0">
+      <Pane fx:id="p3Start" layoutX="406.0" layoutY="14.0" prefHeight="140.0" prefWidth="244.0">
          <children>
-            <Button fx:id="bt1Start" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonStartPressed" prefHeight="25.0" prefWidth="174.0" text="Startort hinzufügen" />
-            <DatePicker fx:id="dp1Start" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="bt1Start" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonStartPressed" prefHeight="25.0" prefWidth="244.0" text="Startort hinzufügen" />
+            <DatePicker fx:id="dp1Start" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="188.0" />
             <Label fx:id="l02UhrzeitStart" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="l03DatumStart" layoutY="40.0" text="Datum" />
             <Label fx:id="l04Start" layoutX="99.0" layoutY="77.0" text=":" />
@@ -66,22 +66,22 @@
             <LetterTextField fx:id="tf03OrtStart" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
          </children>
       </Pane>
-      <Pane fx:id="p4Zwischen" layoutX="406.0" layoutY="168.0" prefHeight="253.0" prefWidth="183.0">
+      <Pane fx:id="p4Zwischen" layoutX="406.0" layoutY="168.0" prefHeight="253.0" prefWidth="244.0">
          <children>
-            <Button fx:id="bt2Zwischen" layoutX="1.0" layoutY="-11.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonZwischenPressed" prefHeight="25.0" prefWidth="174.0" text="Zwischenort" />
-            <DatePicker fx:id="dp2Zwischen1" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="bt2Zwischen" layoutX="1.0" layoutY="-11.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonZwischenPressed" prefHeight="25.0" prefWidth="244.0" text="Zwischenort" />
+            <DatePicker fx:id="dp2Zwischen1" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="195.0" />
             <Label fx:id="l06UhrzeitZwischen1" layoutX="3.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="l07DatumZwischen1" layoutY="40.0" text="Datum" />
             <Label fx:id="l08Zwischen1" layoutX="99.0" layoutY="77.0" text=":" />
-            <DatePicker fx:id="dp3Zwischen2" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="122.0" />
+            <DatePicker fx:id="dp3Zwischen2" layoutX="52.0" layoutY="109.0" prefHeight="25.0" prefWidth="195.0" />
             <Label fx:id="l09UhrzeitZwischen2" layoutX="3.0" layoutY="150.0" text="Uhrzeit" />
             <Label fx:id="l10DatumZwischen2" layoutY="113.0" text="Datum" />
             <Label fx:id="l11Zwischen2" layoutX="99.0" layoutY="150.0" text=":" />
-            <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="102.0" text="Zwischenort nach">
+            <Label layoutX="3.0" layoutY="184.0" prefHeight="17.0" prefWidth="122.0" text="Zwischenort nach /">
                <font>
                   <Font size="10.0" />
                </font></Label>
-            <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="102.0" text="einfügen">
+            <Label layoutX="3.0" layoutY="201.0" prefHeight="17.0" prefWidth="122.0" text="an / vor - einfügen">
                <font>
                   <Font size="10.0" />
                </font></Label>
@@ -92,13 +92,15 @@
             <NumberTextField fx:id="tf07MinZwischen2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf08EinfuegenOrt" layoutX="103.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
             <LetterTextField fx:id="tf09OrtZwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
-            <Button fx:id="btChange" layoutX="144.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonChangeZwischenOrt" prefHeight="25.0" prefWidth="35.0" text="+" />
+            <Button fx:id="btDavor" layoutX="152.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonZwischenStationDavorEinfuegen" prefHeight="25.0" prefWidth="29.0" text="↑" />
+            <Button fx:id="btChange1" layoutX="184.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonChangeZwischenOrt" prefHeight="25.0" prefWidth="29.0" text="↔" />
+            <Button fx:id="btZwischenDanach" layoutX="216.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonZwischenStationDanachEinfuegen" prefHeight="25.0" prefWidth="28.0" text="↓" />
          </children>
       </Pane>
-      <Pane fx:id="p5Ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="183.0">
+      <Pane fx:id="p5Ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="244.0">
          <children>
-            <Button fx:id="bt3Ende" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonEndePressed" prefHeight="25.0" prefWidth="174.0" text="Endort hinzufügen" />
-            <DatePicker fx:id="dp4Ende" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="122.0" />
+            <Button fx:id="bt3Ende" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonEndePressed" prefHeight="25.0" prefWidth="244.0" text="Endort hinzufügen" />
+            <DatePicker fx:id="dp4Ende" layoutX="52.0" layoutY="36.0" prefHeight="25.0" prefWidth="195.0" />
             <Label fx:id="l13UhrzeitEnde" layoutX="1.0" layoutY="77.0" text="Uhrzeit" />
             <Label fx:id="l14DatumEnde" layoutY="40.0" text="Datum" />
             <Label fx:id="l15Ende" layoutX="99.0" layoutY="77.0" text=":" />

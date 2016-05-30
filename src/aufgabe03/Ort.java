@@ -11,7 +11,7 @@ import java.time.LocalDate;
  */
 
 public class Ort implements Comparable<Ort>{
-    String name, uhrzeitAnkunft, uhrzeitAbfahrt;
+    String name, uhrzeitAnkunft, uhrzeitAbfahrt;/** Methode macht noch genau das gleiche wie buttonChangeZwischenOrt() */
     int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt, stationFlag;
     Integer index;
     LocalDate ankunft, abfahrt;
@@ -111,14 +111,6 @@ public class Ort implements Comparable<Ort>{
 
     public int getMinAbfahrt() {
         return minAbfahrt;
-    }
-
-    public String getUhrzeitAnkunft(){
-       return uhrzeitAnkunft;
-    }
-
-    public String getUhrzeitAbfahrt(){
-        return uhrzeitAbfahrt;
     }
 
     public LocalDate getAnkunft() {

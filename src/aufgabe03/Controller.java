@@ -23,7 +23,6 @@ public class Controller implements Initializable {
 	/** 1 Startort, 0 Zwischenort, -1 Endort*/
 	private int stationFlag;
 
-	/** Die ganzen Variablen Namen muessen angepasst werden .. Konvention und so! */
 	@FXML
 	private DatePicker 			dp1Start, dp2Zwischen1, dp3Zwischen2, dp4Ende;
 
@@ -130,6 +129,40 @@ public class Controller implements Initializable {
 
 	@FXML
 	public void buttonChangeZwischenOrt(){
+		try {
+			lObj.changeZwischenStation(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
+					Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
+					Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), 0, Integer.parseInt(tf08EinfuegenOrt.getText()));
+		} catch (Exception e) {
+			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("Fehler beim Aendern eines Zwischenortes");
+			alert.setHeaderText("Beim Aendern des Zwischenortes ist ein Fehler aufgetreten");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
+	}
+
+	/** Methode macht noch genau das gleiche wie buttonChangeZwischenOrt() */
+	@FXML
+	public void buttonZwischenStationDavorEinfuegen(){
+		try {
+			lObj.changeZwischenStation(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
+					Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
+					Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), 0, Integer.parseInt(tf08EinfuegenOrt.getText()));
+		} catch (Exception e) {
+			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("Fehler beim Aendern eines Zwischenortes");
+			alert.setHeaderText("Beim Aendern des Zwischenortes ist ein Fehler aufgetreten");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
+	}
+
+	/** Methode macht noch genau das gleiche wie buttonChangeZwischenOrt() */
+	@FXML
+	public void buttonZwischenStationDanachEinfuegen(){
 		try {
 			lObj.changeZwischenStation(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
 					Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
