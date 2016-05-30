@@ -79,7 +79,7 @@ public class Logik{
 
         Ort temp_ort = new Ort(name, std, min, std, min, dp, dp, stationFlag);
 
-        if(temp_ort.compareTo(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1))) != -1){
+        if(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1)).compareTo(temp_ort) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen.");
         }
 
