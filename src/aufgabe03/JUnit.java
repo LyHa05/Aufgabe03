@@ -23,7 +23,6 @@ public class JUnit {
     public LocalDate o1Ankunft, o1Abfahrt, o2Ankunft, o2Abfahrt;
     public ObservableList<Ort> reiseOrte = FXCollections.observableArrayList();
     public Controller conObj = new Controller();
-    //public Logik logObj = new Logik(conObj);
     public Ort o1, o2, o3, o4;
 
     @Before
@@ -108,28 +107,19 @@ public class JUnit {
         LocalDate o8Abfahrt = LocalDate.of(2000, 2, 2);
         LocalDate o9Ankunft = LocalDate.of(2000, 2, 2);
         LocalDate o9Abfahrt = LocalDate.of(2000, 2, 3);
+        LocalDate o10Ankunft = LocalDate.of(2000, 2, 3);
+        LocalDate o10Abfahrt = LocalDate.of(2000, 2, 4);
+
         Ort o8 = new Ort("Hamburg", 12, 12, 8, 22, o8Ankunft, o8Abfahrt, 1);
-        Ort o9 = new Ort("Hamburg", 8, 22, 12, 12, o9Ankunft, o9Abfahrt, 1);
-        //assertSame(-1, o8.compareTo(o1));
-        assertEquals(0, o8.compareTo(o9)); // nicht realistische Abfahrts- und Ankunftszeit
+        Ort o9 = new Ort("Muenchen", 8, 22, 12, 12, o9Ankunft, o9Abfahrt, 1);
+        Ort o10 = new Ort("Berlin", 14, 12, 16, 22, o10Ankunft, o10Abfahrt, -1);
 
-        //assertEquals(1,o1.compareTo(o8));
-
-
+       assertEquals(0, o8.compareTo(o9)); // nicht realistische Abfahrts- und Ankunftszeit
+       assertEquals(1,o9.compareTo(o8)); // Ankunftszeit liegt vor Abfahrszeit: Nachfolger.compareTo.Vorfolger
+       assertEquals(1, o10.compareTo(o9)); // realistische Zeitabfolge: Nachfolger.compareTo.Vorfolger
+       assertEquals(-1, o9.compareTo(o10)); // Ankunftszeit liegt vor Abfahrszeit
+        assertTrue(o10Abfahrt.isAfter(o10Ankunft));
     }
 
-    /**
-     * Klasse Logik, Methode startHinzufuegen
-     *
-     * @throws Exception
-     */
-    @Test // (expected = IllegalArgumentException.class)
-    public void testStartOrtErstellen() throws Exception {
-        Ort o5 = new Ort("", 12, 12, 8, 22, this.o1Ankunft, this.o1Abfahrt, 1);
-        reiseOrte.addAll(o5);
-        conObj.setReiseOrte(reiseOrte);
-        conObj.getlObj().startHinzufuegen(o1Abfahrt, 12, 12, "Hamburg", 1);
-        assertEquals(o5, conObj.getListView().getItems());
-    }
 
 }

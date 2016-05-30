@@ -140,7 +140,7 @@ public class Ort implements Comparable<Ort>{
 
     /**HIER KOMMT IMMER -1 RAUS, DASS MUESSEN WIR MORGEN NOCHMAL IN RUHE DURCHSCHAUEN!!!*/
 
-    /** gibt -1 zurueck, wenn this < other - also wenn dieses Objekt zeitlich hinter dem verglichenen liegt
+    /** gibt -1 zurueck, wenn this < other - also wenn dieses Objekt (this) zeitlich hinter dem verglichenen (other) liegt
      *  gibt 0 zurueck, wenn this = other - also wenn die Abfahrt (this) und Ankunftszeit (other) identisch sind (auch auf Stunden/Minuten)
      *  gibt 1 zurueck, wenn this > other - also wenn dieses Objekt zeitlich vor dem verglichenen liegt
      *
@@ -148,7 +148,8 @@ public class Ort implements Comparable<Ort>{
      */
     public int compareTo(Ort other){
 
-        if(abfahrt.isAfter(other.getAnkunft())){
+
+        if(abfahrt.isBefore(other.getAnkunft())){
             return -1; /** realistische Zeitabfolge */
         }
 
@@ -162,7 +163,7 @@ public class Ort implements Comparable<Ort>{
             if(stdAbfahrt > other.getStdAnkunft()) return 1; /** unrealistische Zeitabfolge */
         }
 
-        if (abfahrt.isBefore(other.getAnkunft())){
+        if (abfahrt.isAfter(other.getAnkunft())){
             return 1; /** unrealistische Zeitabfolge */
         }
 
