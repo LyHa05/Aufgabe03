@@ -149,27 +149,29 @@ public class Ort implements Comparable<Ort>{
     /**HIER KOMMT IMMER -1 RAUS, DASS MUESSEN WIR MORGEN NOCHMAL IN RUHE DURCHSCHAUEN!!!*/
 
     /** gibt -1 zurueck, wenn this < other - also wenn dieses Objekt zeitlich hinter dem verglichenen liegt
-     *  gibt 0 zurueck, wenn this = other - also wenn die Objekte zeitlich identisch sind (auch auf Stunden/Minuten)
+     *  gibt 0 zurueck, wenn this = other - also wenn die Abfahrt (this) und Ankunftszeit (other) identisch sind (auch auf Stunden/Minuten)
      *  gibt 1 zurueck, wenn this > other - also wenn dieses Objekt zeitlich vor dem verglichenen liegt
+     *
+     *  invertierte Logik
      */
     public int compareTo(Ort other){
 
         if(abfahrt.isAfter(other.getAnkunft())){
-            return -1;
+            return -1; /** realistische Zeitabfolge */
         }
 
         if(abfahrt.isEqual(other.getAnkunft())){
-            if(stdAbfahrt < other.getStdAnkunft()) return -1;
+            if(stdAbfahrt < other.getStdAnkunft()) return -1; /** realistische Zeitabfolge */
             if(stdAbfahrt == other.getStdAnkunft()){
-                if(minAbfahrt < other.getMinAnkunft()) return -1;
-                if(minAbfahrt == other.getMinAnkunft()) return 0;
-                if(minAbfahrt > other.getMinAnkunft()) return 1;
+                if(minAbfahrt < other.getMinAnkunft()) return -1; /** unrealistische Zeitabfolge */
+                if(minAbfahrt == other.getMinAnkunft()) return 0; /** unrealistische Zeitabfolge */
+                if(minAbfahrt > other.getMinAnkunft()) return 1; /** unrealistische Zeitabfolge */
             }
-            if(stdAbfahrt > other.getStdAnkunft()) return 1;
+            if(stdAbfahrt > other.getStdAnkunft()) return 1; /** unrealistische Zeitabfolge */
         }
 
         if (abfahrt.isBefore(other.getAnkunft())){
-            return 1;
+            return 1; /** unrealistische Zeitabfolge */
         }
 
         return 0; // Default Return Parameter
