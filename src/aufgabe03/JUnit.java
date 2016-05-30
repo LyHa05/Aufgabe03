@@ -106,10 +106,13 @@ public class JUnit {
     public void testOrtCompareTo() throws Exception {
         LocalDate o8Ankunft = LocalDate.of(2000, 2, 1);
         LocalDate o8Abfahrt = LocalDate.of(2000, 2, 2);
+        LocalDate o9Ankunft = LocalDate.of(2000, 2, 2);
+        LocalDate o9Abfahrt = LocalDate.of(2000, 2, 3);
         Ort o8 = new Ort("Hamburg", 12, 12, 8, 22, o8Ankunft, o8Abfahrt, 1);
-        Ort o9 = new Ort("Hamburg", 12, 12, 8, 22, o8Ankunft, o8Abfahrt, 1);
+        Ort o9 = new Ort("Hamburg", 8, 22, 12, 12, o9Ankunft, o9Abfahrt, 1);
         //assertSame(-1, o8.compareTo(o1));
-        assertEquals(0, o8.compareTo(o8));
+        assertEquals(0, o8.compareTo(o9)); // nicht realistische Abfahrts- und Ankunftszeit
+
         //assertEquals(1,o1.compareTo(o8));
 
 
