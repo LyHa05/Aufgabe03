@@ -195,6 +195,7 @@ public class Controller implements Initializable {
 		for(Ort tempOrt : reiseOrte){
 			tempOrt.setIndex(reiseOrte.indexOf(tempOrt));
 		}
+		reiseOrte.notifyAll();
 	}
 
 	protected TableView<Ort> getListView(){
