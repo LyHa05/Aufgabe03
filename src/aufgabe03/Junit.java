@@ -127,7 +127,6 @@ public class JUnit {
         conObj.setReiseOrte(reiseOrte);
         conObj.getlObj().startHinzufuegen(o1Abfahrt, 12, 12, "Hamburg", 1);
         assertEquals(o5, conObj.getListView().getItems());
-
     }
 
 }
