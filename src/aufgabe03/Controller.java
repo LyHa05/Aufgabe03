@@ -184,5 +184,4 @@ public class Controller implements Initializable {
 	public Logik getlObj() {
 		return lObj;
 	}
-
 }
