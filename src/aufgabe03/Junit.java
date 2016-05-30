@@ -23,7 +23,7 @@ public class JUnit {
     public LocalDate o1Ankunft, o1Abfahrt, o2Ankunft, o2Abfahrt;
     public ObservableList<Ort> reiseOrte = FXCollections.observableArrayList();
     public Controller conObj = new Controller();
-    public Logik logObj = new Logik(conObj);
+    //public Logik logObj = new Logik(conObj);
     public Ort o1, o2, o3, o4;
 
     @Before
@@ -108,8 +108,9 @@ public class JUnit {
         LocalDate o8Abfahrt = LocalDate.of(2000, 2, 2);
         Ort o8 = new Ort("Hamburg", 12, 12, 8, 22, o8Ankunft, o8Abfahrt, 1);
         Ort o9 = new Ort("Hamburg", 12, 12, 8, 22, o8Ankunft, o8Abfahrt, 1);
-        assertEquals(-1, o8.compareTo(o1));
-        assertEquals(0, o8.compareTo(o9));
+        //assertSame(-1, o8.compareTo(o1));
+        assertEquals(0, o8.compareTo(o8));
+        //assertEquals(1,o1.compareTo(o8));
 
 
     }
@@ -124,7 +125,7 @@ public class JUnit {
         Ort o5 = new Ort("", 12, 12, 8, 22, this.o1Ankunft, this.o1Abfahrt, 1);
         reiseOrte.addAll(o5);
         conObj.setReiseOrte(reiseOrte);
-        logObj.startHinzufuegen(o1Abfahrt, 12, 12, "Hamburg", 1);
+        conObj.getlObj().startHinzufuegen(o1Abfahrt, 12, 12, "Hamburg", 1);
         assertEquals(o5, conObj.getListView().getItems());
 
     }
