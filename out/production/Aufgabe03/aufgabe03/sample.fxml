@@ -92,9 +92,9 @@
             <NumberTextField fx:id="tf07MinZwischen2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf08EinfuegenOrt" layoutX="103.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
             <LetterTextField fx:id="tf09OrtZwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
-            <Button fx:id="btChange" layoutX="152.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonChangeZwischenOrt" prefHeight="25.0" prefWidth="29.0" text="↑" />
+            <Button fx:id="btDavor" layoutX="152.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonZwischenStationDavorEinfuegen" prefHeight="25.0" prefWidth="29.0" text="↑" />
             <Button fx:id="btChange1" layoutX="184.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonChangeZwischenOrt" prefHeight="25.0" prefWidth="29.0" text="↔" />
-            <Button fx:id="btChange11" layoutX="216.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonChangeZwischenOrt" prefHeight="25.0" prefWidth="28.0" text="↓" />
+            <Button fx:id="btZwischenDanach" layoutX="216.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonZwischenStationDanachEinfuegen" prefHeight="25.0" prefWidth="28.0" text="↓" />
          </children>
       </Pane>
       <Pane fx:id="p5Ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="244.0">

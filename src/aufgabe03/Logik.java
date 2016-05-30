@@ -1,7 +1,5 @@
 package aufgabe03;
 
-import javafx.collections.ObservableList;
-
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.time.temporal.ChronoUnit;
@@ -90,18 +88,36 @@ public class Logik{
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
     }
 
+    public void zwischenStationDavorEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
+        indexInRange(index-1);
+        checkStationFlag(index-1);
+
+        Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
+
+        checkUhrZeit(temp_ort, index);
+
+        conObj.getListView().getItems().add((index-1), temp_ort);
+
+        conObj.updateIndex();
+    }
+
+    public void zwischenStationDanachEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
+        indexInRange(index+1);
+        checkStationFlag(index+1);
+
+        Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
+
+        checkUhrZeit(temp_ort, index);
+
+        conObj.getListView().getItems().add((index-1), temp_ort);
+
+        conObj.updateIndex();
+    }
+
     public void changeZwischenStation(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
-        if((conObj.getListView().getItems().size()-1) < index){
-            throw new ArrayIndexOutOfBoundsException("Der ist Ort nicht vorhanden");
-        }
-
-        if(conObj.getListView().getItems().get(index).getStationFlag() == 1){
-            throw new IllegalArgumentException("Der Startort kann nicht ausgetauscht werden.");
-        }
-
-        if((conObj.getListView().getItems().get(index).getStationFlag() == -1)){
-            throw new IllegalArgumentException("Der Endort kann nicht ausgetauscht werden.");
-        }
+        /** Rufen Kontrollmethoden auf */
+        indexInRange(index);
+        checkStationFlag(index);
 
         Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
 
@@ -189,8 +205,31 @@ public class Logik{
         conObj.getNettoLabel().setText(strNetto.toString());
     }
 
-    /** geht nicht :(
-    public void setOrtListe(ObservableList<Ort> ortListe){
-        this.ortListe = ortListe;
-    }*/
+    /** Ausgelagerte Hilfsmethoden um Code Redundanz zu vermeiden */
+
+    private void checkUhrZeit(Ort tempOrt, int index) throws Exception{
+        if(conObj.getListView().getItems().get(index-1).compareTo(tempOrt) != -1){
+            throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
+        }
+
+        if(!(conObj.getListView().getItems().get(index+1).compareTo(tempOrt) != -1)){
+            throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt davor");
+        }
+    }
+
+    private void indexInRange(int index) throws Exception{
+        if((conObj.getListView().getItems().size()-1) < index){
+            throw new ArrayIndexOutOfBoundsException("Der ist Ort nicht vorhanden");
+        }
+    }
+
+    private void checkStationFlag(int index) throws Exception{
+        if(conObj.getListView().getItems().get(index).getStationFlag() == 1){
+            throw new IllegalArgumentException("Der Startort kann nicht ausgetauscht werden.");
+        }
+
+        if((conObj.getListView().getItems().get(index).getStationFlag() == -1)){
+            throw new IllegalArgumentException("Der Endort kann nicht ausgetauscht werden.");
+        }
+    }
 }

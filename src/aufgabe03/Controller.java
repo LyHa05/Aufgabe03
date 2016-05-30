@@ -147,7 +147,7 @@ public class Controller implements Initializable {
 	@FXML
 	public void buttonZwischenStationDavorEinfuegen(){
 		try {
-			lObj.changeZwischenStation(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
+			lObj.zwischenStationDavorEinfuegen(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
 					Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
 					Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), 0, Integer.parseInt(tf08EinfuegenOrt.getText()));
 		} catch (Exception e) {
@@ -164,7 +164,7 @@ public class Controller implements Initializable {
 	@FXML
 	public void buttonZwischenStationDanachEinfuegen(){
 		try {
-			lObj.changeZwischenStation(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
+			lObj.zwischenStationDanachEinfuegen(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
 					Integer.parseInt(tf05MinZwischen1.getText()), Integer.parseInt(tf06StdZwischen2.getText()),
 					Integer.parseInt(tf07MinZwischen2.getText()), tf09OrtZwischen.getText(), 0, Integer.parseInt(tf08EinfuegenOrt.getText()));
 		} catch (Exception e) {
