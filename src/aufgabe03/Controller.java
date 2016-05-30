@@ -71,6 +71,7 @@ public class Controller implements Initializable {
 		}
 	}
 
+
 	/** Konstruktor
 	 *  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
 	 *  Variable gespeichert wird und uebergibt this fuer die Referenz aus sich*/
@@ -179,4 +180,9 @@ public class Controller implements Initializable {
 	void setReiseOrte(ObservableList<Ort> reiseOrte) {
 		this.reiseOrte = reiseOrte;
 	}
+
+	public Logik getlObj() {
+		return lObj;
+	}
+
 }
