@@ -7,9 +7,6 @@ import java.util.HashSet;
 import org.junit.Before;
 import org.junit.Test;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 /**
  * @author Chris Thiele, Lydia Pflug
  * @date 24.05.2016
@@ -19,9 +16,7 @@ import javafx.collections.ObservableList;
 public class JUnit {
 
     public LocalDate o1Ankunft, o1Abfahrt, o2Ankunft, o2Abfahrt;
-    public ObservableList<Ort> reiseOrte = FXCollections.observableArrayList();
-    public Controller conObj = new Controller();
-    public Ort o1, o2, o3, o4;
+    public Ort o1, o2, o3;
 
     @Before
     public void setUp() throws Exception {
@@ -34,10 +29,6 @@ public class JUnit {
         this.o1 = new Ort("Hamburg", 12, 12, 8, 22, o1Ankunft, o1Abfahrt, 1);
         this.o2 = new Ort("Hamburg", 12, 12, 8, 22, o1Ankunft, o1Abfahrt, 1);
         this.o3 = new Ort("Frankfurt", 1, 12, 8, 22, o2Ankunft, o2Abfahrt, 0);
-        // o3 = new Ort("Berlin", 12, 9, 22, 22, d1, d2, 0);
-        // o4 = new Ort("Bremen", 13, 22, 8, 22, d1, d2, -1);
-
-        reiseOrte.addAll(o1, o2, o3);
     }
 
     /**
