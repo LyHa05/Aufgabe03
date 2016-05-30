@@ -90,9 +90,9 @@
             <NumberTextField fx:id="tf05MinZwischen1" layoutX="114.0" layoutY="74.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf06StdZwischen2" layoutX="53.0" layoutY="148.0" prefHeight="25.0" prefWidth="35.0" />
             <NumberTextField fx:id="tf07MinZwischen2" layoutX="114.0" layoutY="149.0" prefHeight="25.0" prefWidth="35.0" />
-            <TextField fx:id="tf08EinfuegenOrt" layoutX="103.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
+            <NumberTextField fx:id="tf08EinfuegenOrt" layoutX="103.0" layoutY="190.0" prefHeight="25.0" prefWidth="35.0" />
             <LetterTextField fx:id="tf09OrtZwischen" layoutX="54.0" layoutY="225.0" prefHeight="25.0" prefWidth="122.0" />
-            <Button layoutX="144.0" layoutY="190.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="+" />
+            <Button fx:id="btChange" layoutX="144.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonChangeZwischenOrt" prefHeight="25.0" prefWidth="35.0" text="+" />
          </children>
       </Pane>
       <Pane fx:id="p5Ende" layoutX="406.0" layoutY="425.0" prefHeight="140.0" prefWidth="183.0">
@@ -111,10 +111,10 @@
       <Pane fx:id="p6Zeit" layoutX="22.0" layoutY="485.0" prefHeight="80.0" prefWidth="376.0">
          <children>
             <Label layoutY="6.0" prefHeight="17.0" prefWidth="102.0" text="Reisezeit" />
-            <Label layoutX="6.0" layoutY="32.0" prefHeight="17.0" prefWidth="35.0" text="netto" />
-            <Label layoutX="7.0" layoutY="55.0" prefHeight="17.0" prefWidth="38.0" text="brutto" />
-            <Label fx:id="l2NettoReise" layoutX="48.0" layoutY="32.0" prefHeight="17.0" prefWidth="102.0" text="Netto-Reisezeit" />
-            <Label fx:id="l3BruttoReise" layoutX="49.0" layoutY="55.0" prefHeight="17.0" prefWidth="102.0" text="Brutto-Reisezeit" />
+            <Label layoutX="6.0" layoutY="32.0" prefHeight="17.0" prefWidth="44.0" text="netto" />
+            <Label layoutX="7.0" layoutY="55.0" prefHeight="17.0" prefWidth="44.0" text="brutto" />
+            <Label fx:id="l2NettoReise" layoutX="68.0" layoutY="32.0" prefHeight="17.0" prefWidth="301.0" text="Netto-Reisezeit" />
+            <Label fx:id="l3BruttoReise" layoutX="69.0" layoutY="55.0" prefHeight="17.0" prefWidth="301.0" text="Brutto-Reisezeit" />
          </children>
       </Pane>
    </children>

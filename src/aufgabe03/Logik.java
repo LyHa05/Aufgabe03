@@ -49,7 +49,7 @@ public class Logik{
             throw new IllegalArgumentException("Zuerst muss ein Startort eingefuegt werden.");
         }
 
-        if(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1)).compareTo(temp_ort) == -1){
+        if(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1)).compareTo(temp_ort) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen.");
         }
 
@@ -81,7 +81,7 @@ public class Logik{
 
         Ort temp_ort = new Ort(name, std, min, std, min, dp, dp, stationFlag);
 
-        if(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1)).compareTo(temp_ort) == -1){
+        if(temp_ort.compareTo(conObj.getListView().getItems().get((conObj.getListView().getItems().size()-1))) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen.");
         }
 
@@ -105,11 +105,11 @@ public class Logik{
 
         Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
 
-        if(conObj.getListView().getItems().get(index-1).compareTo(temp_ort) == -1){
+        if(conObj.getListView().getItems().get(index-1).compareTo(temp_ort) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
         }
 
-        if(temp_ort.compareTo(conObj.getListView().getItems().get(index+1)) == -1){
+        if(!(conObj.getListView().getItems().get(index+1).compareTo(temp_ort) != -1)){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt davor");
         }
     }
@@ -136,6 +136,8 @@ public class Logik{
         }
         bruttoZeit = zeitDifferenzRechner(temp_start_ort, temp_ende_ort);
         nettoZeit = bruttoZeit - aufenthaltsZeit;
+
+        setLabel(bruttoZeit, nettoZeit);
     }
 
     private double zeitDifferenzRechner(Ort ort1, Ort ort2) {

@@ -163,7 +163,7 @@ public class Ort implements Comparable<Ort>{
         if(abfahrt.isEqual(other.getAnkunft())){
             if(stdAbfahrt < other.getStdAnkunft()) return -1; /** realistische Zeitabfolge */
             if(stdAbfahrt == other.getStdAnkunft()){
-                if(minAbfahrt < other.getMinAnkunft()) return -1; /** unrealistische Zeitabfolge */
+                if(minAbfahrt < other.getMinAnkunft()) return -1; /** realistische Zeitabfolge */
                 if(minAbfahrt == other.getMinAnkunft()) return 0; /** unrealistische Zeitabfolge */
                 if(minAbfahrt > other.getMinAnkunft()) return 1; /** unrealistische Zeitabfolge */
             }
