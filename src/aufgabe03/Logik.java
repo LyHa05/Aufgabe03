@@ -89,12 +89,15 @@ public class Logik{
     }
 
     public void zwischenStationDavorEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
-        indexInRange(index-1);
-        checkStationFlag(index-1);
+        indexInRange(index);
+
+        if(conObj.getListView().getItems().get(index).getStationFlag() != 1){
+            throw new IllegalArgumentException("Es kann keine Zwischenstation vor dem Startort eingefuegt werden.");
+        }
 
         Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
 
-        checkUhrZeit(temp_ort, index);
+        checkUhrZeitDavor(temp_ort, index);
 
         conObj.getListView().getItems().add((index-1), temp_ort);
 
@@ -102,14 +105,17 @@ public class Logik{
     }
 
     public void zwischenStationDanachEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
-        indexInRange(index+1);
-        checkStationFlag(index+1);
+        indexInRange(index);
+
+        if(conObj.getListView().getItems().get(index).getStationFlag() != -1){
+            throw new IllegalArgumentException("Es kann keine Zwischenstation hinter dem Endort eingefuegt werden.");
+        }
 
         Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
 
-        checkUhrZeit(temp_ort, index);
+        checkUhrZeitDanach(temp_ort, index);
 
-        conObj.getListView().getItems().add((index-1), temp_ort);
+        conObj.getListView().getItems().add((index+1), temp_ort);
 
         conObj.updateIndex();
     }
@@ -125,9 +131,13 @@ public class Logik{
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
         }
 
-        if(!(conObj.getListView().getItems().get(index+1).compareTo(temp_ort) != -1)){
+        if(temp_ort.compareTo(conObj.getListView().getItems().get(index+1)) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt davor");
         }
+
+        conObj.getListView().getItems().remove(index);
+        conObj.getListView().getItems().add(index, temp_ort);
+        conObj.updateIndex();
     }
 
     public void berechnenZeit() throws Exception {
@@ -207,15 +217,26 @@ public class Logik{
 
     /** Ausgelagerte Hilfsmethoden um Code Redundanz zu vermeiden */
 
-    private void checkUhrZeit(Ort tempOrt, int index) throws Exception{
+    private void checkUhrZeitDavor(Ort tempOrt, int index) throws Exception{
         if(conObj.getListView().getItems().get(index-1).compareTo(tempOrt) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
         }
 
-        if(!(conObj.getListView().getItems().get(index+1).compareTo(tempOrt) != -1)){
+        if(tempOrt.compareTo(conObj.getListView().getItems().get(index)) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt davor");
         }
     }
+
+    private void checkUhrZeitDanach(Ort tempOrt, int index) throws Exception{
+        if(conObj.getListView().getItems().get(index).compareTo(tempOrt) != -1){
+            throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
+        }
+
+        if(tempOrt.compareTo(conObj.getListView().getItems().get(index+1)) != -1){
+            throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt davor");
+        }
+    }
+
 
     private void indexInRange(int index) throws Exception{
         if((conObj.getListView().getItems().size()-1) < index){
