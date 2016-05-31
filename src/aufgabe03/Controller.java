@@ -79,7 +79,6 @@ public class Controller implements Initializable {
 	/**Methode generiert Startort, stationFlag wird mit 1 fuer Start uebergeben.*/
 	@FXML
 	public void buttonStartPressed() {
-		stationFlag = 1;
 		try {
 			lObj.startHinzufuegen(dp1Start.getValue(), Integer.parseInt(tf01StdStart.getText()), Integer.parseInt(tf02MinStart.getText()), tf03OrtStart.getText(), 1);
 		} catch (Exception e) {
@@ -95,7 +94,6 @@ public class Controller implements Initializable {
 	/**Methode generiert Zwischenort, stationFlag wird mit 0 fuer Zwischenort uebergeben.*/
 	@FXML
 	public void buttonZwischenPressed() {
-		stationFlag = 0;
 		try {
 			/** Memo an mich - die Parameter sind eventuell doch etwas viele */
 			lObj.zwischenStationHinzufuegen(dp2Zwischen1.getValue(), dp3Zwischen2.getValue(), Integer.parseInt(tf04StdZwischen1.getText()),
