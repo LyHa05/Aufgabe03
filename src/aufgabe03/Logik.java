@@ -91,7 +91,7 @@ public class Logik{
     public void zwischenStationDavorEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
         indexInRange(index);
 
-        if(conObj.getListView().getItems().get(index).getStationFlag() != 1){
+        if(conObj.getListView().getItems().get(index).getStationFlag() == 1){
             throw new IllegalArgumentException("Es kann keine Zwischenstation vor dem Startort eingefuegt werden.");
         }
 
@@ -107,7 +107,7 @@ public class Logik{
     public void zwischenStationDanachEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
         indexInRange(index);
 
-        if(conObj.getListView().getItems().get(index).getStationFlag() != -1){
+        if(conObj.getListView().getItems().get(index).getStationFlag() == -1){
             throw new IllegalArgumentException("Es kann keine Zwischenstation hinter dem Endort eingefuegt werden.");
         }
 
