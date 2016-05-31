@@ -174,7 +174,6 @@ public class Logik{
         double zeitTage = 0.0;
         double zeitStunden = 0.0;
         double zeitMinuten = 0.0;
-        double zeitDifferenz = 0.0;
 
 
         zeitTage = Math.abs((ChronoUnit.DAYS.between(ort1.getAbfahrt(), ort2.getAnkunft())) * 24 * 60);
@@ -183,7 +182,7 @@ public class Logik{
         }
         zeitStunden = Math.abs((ort1.getStdAnkunft() - ort2.getStdAbfahrt()) * 60);
         zeitMinuten = Math.abs((ort1.getMinAnkunft() - ort2.getMinAbfahrt()));
-        return zeitDifferenz = zeitTage + zeitStunden + zeitMinuten;
+        return (zeitTage + zeitStunden + zeitMinuten);
     }
 
     /**Methode beschreibt Label fuer Reisezeit*/
