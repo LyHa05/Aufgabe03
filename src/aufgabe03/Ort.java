@@ -34,15 +34,35 @@ public class Ort implements Comparable<Ort>{
 
         /** 'Baut' aus den Uhrzeit-Einzel-Teilen zwei Strings fuer die Darstellung in der Tabelle */
         StringBuilder sbAnkunft = new StringBuilder();
-        sbAnkunft.append(stdAnkunft);
+        if(stdAnkunft <= 9){
+            sbAnkunft.append("0");
+            sbAnkunft.append(stdAnkunft);
+        } else {
+            sbAnkunft.append(stdAnkunft);
+        }
         sbAnkunft.append(":");
-        sbAnkunft.append(minAnkunft);
+        if(minAnkunft <= 9){
+            sbAnkunft.append("0");
+            sbAnkunft.append(minAnkunft);
+        } else {
+            sbAnkunft.append(minAnkunft);
+        }
         uhrzeitAnkunft = sbAnkunft.toString();
 
         StringBuilder sbAbfahrt = new StringBuilder();
-        sbAbfahrt.append(stdAbfahrt);
+        if(stdAbfahrt <= 9){
+            sbAbfahrt.append("0");
+            sbAbfahrt.append(stdAbfahrt);
+        } else {
+            sbAbfahrt.append(stdAbfahrt);
+        }
         sbAbfahrt.append(":");
-        sbAbfahrt.append(minAbfahrt);
+        if(stdAbfahrt <= 9){
+            sbAbfahrt.append("0");
+            sbAbfahrt.append(minAbfahrt);
+        } else {
+            sbAbfahrt.append(minAbfahrt);
+        }
         uhrzeitAbfahrt = sbAbfahrt.toString();
     }
 
