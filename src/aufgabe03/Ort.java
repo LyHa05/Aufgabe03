@@ -12,10 +12,11 @@ import java.time.LocalDate;
 
 public class Ort implements Comparable<Ort>{
     String name, uhrzeitAnkunft, uhrzeitAbfahrt;
-    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt, stationFlag;
+    int stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt, stationFlag; /** 1 Startort, 0 Zwischenort, -1 Endort*/
     Integer index;
     LocalDate ankunft, abfahrt;
 
+    /**Konstruktor*/
     public Ort(String name, int stdAnkunft, int minAnkunft, int stdAbfahrt, int minAbfahrt, LocalDate ankunft, LocalDate abfahrt, int stationFlag) throws Exception{
         if(!(ueberpruefeUhrzeit(stdAnkunft, minAnkunft, stdAbfahrt, minAbfahrt))){
             throw new IllegalArgumentException("Die Uhrzeit ist unrealistisch!");
@@ -66,26 +67,32 @@ public class Ort implements Comparable<Ort>{
         uhrzeitAbfahrt = sbAbfahrt.toString();
     }
 
+    /**Getter-Methode*/
     public Integer getIndex(){
         return index;
     }
 
+    /**Setter-Methode*/
     public void setIndex(Integer index){
         this.index = index;
     }
 
+    /**Getter-Methode*/
     public String getName() {
         return name;
     }
 
+    /**Getter-Methode*/
     public int getStdAnkunft() {
         return stdAnkunft;
     }
 
+    /**Getter-Methode*/
     public int getMinAnkunft() {
         return minAnkunft;
     }
 
+    /**Ueberschriebene equals-Methode*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,6 +116,7 @@ public class Ort implements Comparable<Ort>{
 
     }
 
+    /**Ueberschriebene hashCode-Methode*/
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
@@ -125,26 +133,33 @@ public class Ort implements Comparable<Ort>{
         return result;
     }
 
+    /**Getter-Methode*/
     public int getStationFlag() { return stationFlag; }
 
+    /**Getter-Methode*/
     public int getStdAbfahrt() { return stdAbfahrt; }
 
+    /**Getter-Methode*/
     public int getMinAbfahrt() {
         return minAbfahrt;
     }
 
+    /**Getter-Methode*/
     public LocalDate getAnkunft() {
         return ankunft;
     }
 
+    /**Getter-Methode*/
     public LocalDate getAbfahrt() {
         return abfahrt;
     }
 
+    /**Getter-Methode*/
     public String getUhrzeitAbfahrt() {
         return uhrzeitAbfahrt;
     }
 
+    /**Getter-Methode*/
     public String getUhrzeitAnkunft() {
         return uhrzeitAnkunft;
     }
@@ -166,9 +181,9 @@ public class Ort implements Comparable<Ort>{
         return true;
     }
 
-    /**HIER KOMMT IMMER -1 RAUS, DASS MUESSEN WIR MORGEN NOCHMAL IN RUHE DURCHSCHAUEN!!!*/
 
-    /** gibt -1 zurueck, wenn this < other - also wenn dieses Objekt (this) zeitlich hinter dem verglichenen (other) liegt
+    /** Ueberschriebene compareTo-Methode
+     * gibt -1 zurueck, wenn this < other - also wenn dieses Objekt (this) zeitlich hinter dem verglichenen (other) liegt
      *  gibt 0 zurueck, wenn this = other - also wenn die Abfahrt (this) und Ankunftszeit (other) identisch sind (auch auf Stunden/Minuten)
      *  gibt 1 zurueck, wenn this > other - also wenn dieses Objekt zeitlich vor dem verglichenen liegt
      *
@@ -198,6 +213,7 @@ public class Ort implements Comparable<Ort>{
         return 0; // Default Return Parameter
     }
 
+    /**Ueberschriebene toString-Methode*/
     @Override
     public String toString(){
         return "Ort: " + name + " Ankunftsdatum: " + ankunft.toString() + " " + uhrzeitAnkunft + "  Abfahrt " + abfahrt.toString() + " " + uhrzeitAbfahrt;

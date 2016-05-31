@@ -1,27 +1,27 @@
 package aufgabe03;
 
-// Import Custom TextFields
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+/**
+ * @author  Chris Thiele, Lydia Pflug
+ * @date    24.05.2016
+ *
+ * Die Klasse 'Controller' erstellt die Objekte der fxml-Datei und definiert die Methoden fuer das Ausfuehren der Buttons.
+ */
 
 public class Controller implements Initializable {
 	/** Variable Deklaration
 	 *  Die Objekte werden automatisch aus der FXML Datei geparst
 	 *  wenn sie den gleichen Namen haben, wie ihre fx:id */
 	private Logik lObj;
-
-
-	/** 1 Startort, 0 Zwischenort, -1 Endort*/
-	private int stationFlag;
 
 	@FXML
 	private DatePicker 			dp1Start, dp2Zwischen1, dp3Zwischen2, dp4Ende;
@@ -70,16 +70,13 @@ public class Controller implements Initializable {
 		}
 	}
 
-
-	/** Konstruktor
-	 *  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
+	 /**  Der Konstruktor erzeugt ein Logik Objekt, welches in einer Instanz
 	 *  Variable gespeichert wird und uebergibt this fuer die Referenz aus sich*/
 	public Controller(){
 		lObj = new Logik(this);
     }
 
-	/** Methoden */
-	
+	/**Methode generiert Startort, stationFlag wird mit 1 fuer Start uebergeben.*/
 	@FXML
 	public void buttonStartPressed() {
 		stationFlag = 1;
@@ -94,7 +91,8 @@ public class Controller implements Initializable {
 			alert.showAndWait();
 		}
 	}
-	
+
+	/**Methode generiert Zwischenort, stationFlag wird mit 0 fuer Zwischenort uebergeben.*/
 	@FXML
 	public void buttonZwischenPressed() {
 		stationFlag = 0;
@@ -113,6 +111,7 @@ public class Controller implements Initializable {
 		}
 	}
 
+	/**Methode generiert Endort, stationFlag wird mit -1 fuer Endort uebergeben.*/
 	@FXML
 	public void buttonEndePressed(){
 		try {
@@ -127,6 +126,7 @@ public class Controller implements Initializable {
 		}
 	}
 
+	/**Methode generiert Zwischenort und tauscht ihn gegen anderen Zwischenort aus, stationFlag wird mit 0 fuer Zwischenort uebergeben.*/
 	@FXML
 	public void buttonChangeZwischenOrt(){
 		try {
@@ -143,7 +143,7 @@ public class Controller implements Initializable {
 		}
 	}
 
-	/** Methode macht noch genau das gleiche wie buttonChangeZwischenOrt() */
+	/**Methode generiert Zwischenort und setzt ihn vor Station ein, stationFlag wird mit 0 fuer Zwischenort uebergeben.*/
 	@FXML
 	public void buttonZwischenStationDavorEinfuegen(){
 		try {
@@ -160,7 +160,7 @@ public class Controller implements Initializable {
 		}
 	}
 
-	/** Methode macht noch genau das gleiche wie buttonChangeZwischenOrt() */
+	/**Methode generiert Zwischenort und setzt ihn nach Station ein, stationFlag wird mit 0 fuer Zwischenort uebergeben.*/
 	@FXML
 	public void buttonZwischenStationDanachEinfuegen(){
 		try {
@@ -177,6 +177,7 @@ public class Controller implements Initializable {
 		}
 	}
 
+	/** Methode löst nach Zusammenstellung der Orte die Zeitberechnung aus.*/
 	@FXML
 	public void buttonReiseErstellenPressed(){
 		try {
@@ -191,24 +192,29 @@ public class Controller implements Initializable {
 		}
 	}
 
+	/** Methode setzt Index der TableView nach Veränderung der Zwischenorte neu.*/
 	protected void updateIndex(){
 		for(Ort tempOrt : tvTable.getItems()){
 			tempOrt.setIndex(tvTable.getItems().indexOf(tempOrt));
 		}
 	}
 
+	/* Getter-Methode*/
 	protected TableView<Ort> getListView(){
 		return tvTable;
 	}
 
+	/* Getter-Methode*/
 	protected Label getNettoLabel(){
 		return l2NettoReise;
 	}
 
+	/* Getter-Methode*/
 	protected Label getBruttoLabel(){
 		return l3BruttoReise;
 	}
 
+	/* Getter-Methode*/
 	public Logik getlObj() {
 		return lObj;
 	}

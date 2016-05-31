@@ -8,6 +8,13 @@
 <?import aufgabe03.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
+        /**
+        * @author  Chris Thiele, Lydia Pflug
+        * @date    24.05.2016
+        *
+        * In der sample.fxml-Datei sind die Container und die Controls für das graphische Interface definiert.
+        */
+
 <AnchorPane fx:id="p1Gesamt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aufgabe03.Controller">
    <children>
       <Pane fx:id="p2Reise" layoutX="14.0" layoutY="14.0" prefHeight="452.0" prefWidth="376.0">

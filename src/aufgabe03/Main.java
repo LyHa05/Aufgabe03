@@ -6,6 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * @author  Chris Thiele, Lydia Pflug
+ * @date    24.05.2016
+ *
+ * Die Klasse Main initialisiert die sample.fxml-Datei und startet damit die Anwendung.
+ */
+
 public class Main extends Application {
 
 	@Override

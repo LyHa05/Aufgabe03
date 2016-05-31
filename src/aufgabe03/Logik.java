@@ -8,8 +8,9 @@ import java.time.temporal.ChronoUnit;
  * @author  Chris Thiele, Lydia Pflug
  * @date    24.05.2016
  *
- * Die Klasse 'Logik' repraesentiert die Logik Schicht des Programms.
+ * Die Klasse 'Logik' repraesentiert die Logikschicht des Programms.
  */
+
 public class Logik{
     private Controller conObj;
     private boolean startUndEnde = false;
@@ -37,9 +38,7 @@ public class Logik{
     }
 
     /**Die Methode "zwischenStationHinzufuegen fuegt nacht Ueberpruefung, ob die Daten korrekt sind und
-     * chronologisch Sinn ergeben, eine Zwischenstation in die Liste ein.
-     *
-     * Ist momentan noch so implementiert, dass sie nach dem letzten Element den Ort anfuegt */
+     * chronologisch Sinn ergeben, eine Zwischenstation in die Liste ein. */
     public void zwischenStationHinzufuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag) throws Exception{
         Ort temp_ort = new Ort(name, stdAnk, minAnk, stdAbf, minAbf, dpAnkunft, dpAbfahrt, stationFlag);
 
@@ -59,9 +58,9 @@ public class Logik{
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
     }
 
-    /** Die Methode "endeHinzufuegen" ueberprueft, ob bereits ein Endort in der Liste ist, ist dies nicht der Fall
+    /** Die Methode "endeHinzufuegen" ueberprueft, ob bereits ein Endort in der Liste ist. Ist dies nicht der Fall,
      *  wird ueberprueft, ob das letzte Abfahrtsdatum spaeter ist, als das Anreisedatum am Endzeitpunkt, ist auch
-     *  dies nicht der Fall, wird der Endort zur Liste hinzugefuegt und die Boolean "startUndEnde" auf true gesetzt
+     *  dies nicht der Fall, wird der Endort zur Liste hinzugefuegt und die Boolean "startUndEnde" auf true gesetzt.
      * */
     public void endeHinzufuegen(LocalDate dp,Integer std,Integer min, String name,int stationFlag) throws Exception{
 
@@ -88,6 +87,7 @@ public class Logik{
         temp_ort.setIndex(conObj.getListView().getItems().indexOf(temp_ort));
     }
 
+    /** Methode erstellt Zwischenstation und fuegt diese vor der ausgewaehlten Station ein*/
     public void zwischenStationDavorEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
         indexInRange(index);
 
@@ -104,6 +104,7 @@ public class Logik{
         conObj.updateIndex();
     }
 
+    /** Methode erstellt Zwischenstation und fuegt diese nach der ausgewaehlten Station ein*/
     public void zwischenStationDanachEinfuegen(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
         indexInRange(index);
 
@@ -120,8 +121,8 @@ public class Logik{
         conObj.updateIndex();
     }
 
+    /** Methode erstellt Zwischenstation und tauscht diese mit der ausgewaehlten Station aus.*/
     public void changeZwischenStation(LocalDate dpAnkunft, LocalDate dpAbfahrt, int stdAnk, int minAnk, int stdAbf,int minAbf, String name, int stationFlag, int index) throws Exception{
-        /** Rufen Kontrollmethoden auf */
         indexInRange(index);
         checkStationFlag(index);
 
@@ -140,6 +141,7 @@ public class Logik{
         conObj.updateIndex();
     }
 
+    /** Methode berechnet Netto- und Bruttozeit der erstellten Reise.*/
     public void berechnenZeit() throws Exception {
 
         double aufenthaltsZeit = 0.0; // Aufenthaltzeit bei Zwischenstationen in Minuten
@@ -166,6 +168,7 @@ public class Logik{
         setLabel(bruttoZeit, nettoZeit);
     }
 
+    /**Hilfsmethode, um Reisezeit zu berechnen.*/
     private double zeitDifferenzRechner(Ort ort1, Ort ort2) {
 
         double zeitTage = 0.0;
@@ -183,6 +186,7 @@ public class Logik{
         return zeitDifferenz = zeitTage + zeitStunden + zeitMinuten;
     }
 
+    /**Methode beschreibt Label fuer Reisezeit*/
     private void setLabel(double minutenBrutto, double minutenNetto){
         double stundenBrutto, stundenNetto, tageBrutto, tageNetto;
 
@@ -215,8 +219,7 @@ public class Logik{
         conObj.getNettoLabel().setText(strNetto.toString());
     }
 
-    /** Ausgelagerte Hilfsmethoden um Code Redundanz zu vermeiden */
-
+    /** Ausgelagerte Hilfsmethoden, um Zeitangaben bei 'Zwischenstation davor einfuegen' zu pruefen. */
     private void checkUhrZeitDavor(Ort tempOrt, int index) throws Exception{
         if(conObj.getListView().getItems().get(index-1).compareTo(tempOrt) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
@@ -227,6 +230,7 @@ public class Logik{
         }
     }
 
+    /** Ausgelagerte Hilfsmethoden, um Zeitangaben bei 'Zwischenstation danach einfuegen' zu pruefen. */
     private void checkUhrZeitDanach(Ort tempOrt, int index) throws Exception{
         if(conObj.getListView().getItems().get(index).compareTo(tempOrt) != -1){
             throw new IllegalArgumentException("Der Ankunftszeitpunkt darf nicht vor dem letzten Abfahrtszeitpunkt liegen. //Objekt dahinter");
@@ -237,13 +241,14 @@ public class Logik{
         }
     }
 
-
+    /**Hilfsmethode, um Index bei Zwischenstation einfuegen zu pruefen.*/
     private void indexInRange(int index) throws Exception{
         if((conObj.getListView().getItems().size()-1) < index){
             throw new ArrayIndexOutOfBoundsException("Der ist Ort nicht vorhanden");
         }
     }
 
+    /**Hilfsmethode, um stationFlag bei Zwischenstation einfuegen zu pruefen.*/
     private void checkStationFlag(int index) throws Exception{
         if(conObj.getListView().getItems().get(index).getStationFlag() == 1){
             throw new IllegalArgumentException("Der Startort kann nicht ausgetauscht werden.");
